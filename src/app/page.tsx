@@ -1,5 +1,6 @@
-"use client";
+// Home.tsx or page.tsx depending on your structure
 
+import React from "react";
 import Layout from "@/components/Layout";
 
 const Home = () => {

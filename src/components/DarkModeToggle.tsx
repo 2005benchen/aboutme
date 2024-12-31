@@ -1,33 +1,60 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
-const DarkModeToggle: React.FC = () => {
-  const [darkMode, setDarkMode] = useState(() => {
-    // Check local storage for theme preference
-    if (typeof window !== 'undefined') {
-      return localStorage.getItem('theme') === 'dark';
-    }
-    return false;
-  });
+const DarkModeToggle = () => {
+  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
-    const root = document.documentElement; // Target the <html> element
-    if (darkMode) {
-      root.classList.add('dark');
-      localStorage.setItem('theme', 'dark'); // Persist theme in local storage
-    } else {
-      root.classList.remove('dark');
-      localStorage.setItem('theme', 'light'); // Persist theme in local storage
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      const isDarkTheme = savedTheme === "dark";
+      setIsDark(isDarkTheme);
+      document.documentElement.classList.toggle("dark", isDarkTheme);
+      updateBadgeTheme(isDarkTheme ? "dark" : "light");
     }
-  }, [darkMode]);
+  }, []);
+
+  const toggleDarkMode = () => {
+    const newTheme = !isDark ? "dark" : "light";
+    setIsDark(!isDark);
+    document.documentElement.classList.toggle("dark", newTheme === "dark");
+    localStorage.setItem("theme", newTheme);
+    updateBadgeTheme(newTheme);
+  };
+
+  const updateBadgeTheme = (theme: "dark" | "light") => {
+    const badgeContainer = document.querySelector("#linkedin-badge-container");
+
+    if (badgeContainer) {
+      // Clear the badge container
+      badgeContainer.innerHTML = "";
+
+      // Recreate the badge with the updated theme
+      const badgeDiv = document.createElement("div");
+      badgeDiv.className = "badge-base LI-profile-badge";
+      badgeDiv.setAttribute("data-locale", "en_US");
+      badgeDiv.setAttribute("data-size", "large");
+      badgeDiv.setAttribute("data-theme", theme);
+      badgeDiv.setAttribute("data-type", "HORIZONTAL");
+      badgeDiv.setAttribute("data-vanity", "ben10chen");
+      badgeDiv.setAttribute("data-version", "v1");
+
+      badgeContainer.appendChild(badgeDiv);
+
+      // Reinitialize the LinkedIn badge script
+      const script = document.createElement("script");
+      script.src = "https://platform.linkedin.com/badges/js/profile.js";
+      script.async = true;
+      script.defer = true;
+
+      document.body.appendChild(script);
+    }
+  };
 
   return (
-    <button
-      onClick={() => setDarkMode(!darkMode)}
-      className="p-2 rounded bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200"
-    >
-      {darkMode ? 'Light Mode' : 'Dark Mode'}
+    <button onClick={toggleDarkMode} className="p-2 rounded">
+      {isDark ? "Light Mode" : "Dark Mode"}
     </button>
   );
 };

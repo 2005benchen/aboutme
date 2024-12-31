@@ -1,4 +1,5 @@
-"use client";
+// Remove or comment out the following line
+// "use client";
 
 import React from "react";
 import Link from "next/link";
@@ -8,16 +9,11 @@ import Head from "next/head";
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <>
-      <Head>
-        <title>Ben Chen - Portfolio</title>
-        <link rel="icon" href="/favicone.ico" />
-        <meta name="description" content="Welcome to Ben Chen's portfolio website." />
-      </Head>
       <header className="bg-gray-800 dark:bg-gray-900 text-white dark:text-gray-200 p-4 flex justify-between items-center">
         {/* Add logo */}
         <div className="flex items-center">
           <img
-            src="/ben.jpg" // Ensure ben.jpg is in the public folder
+            src="/ben.jpg" // Ensure this path is correct and the image exists in the public folder
             alt="Ben Chen Logo"
             className="h-10 w-10 mr-4"
           />
@@ -26,19 +22,29 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         <nav>
           <ul className="flex space-x-4">
             <li>
-              <Link href="/">Home</Link>
+              <Link href="/" legacyBehavior>
+                <a className="hover:text-yellow-500 transition-colors duration-200">Home</a>
+              </Link>
             </li>
             <li>
-              <Link href="/about">About</Link>
+              <Link href="/about" legacyBehavior>
+                <a className="hover:text-yellow-500 transition-colors duration-200">About</a>
+              </Link>
+            </li>
+            {/* <li>
+              <Link href="/portfolio" legacyBehavior>
+                <a className="hover:text-yellow-500 transition-colors duration-200">Portfolio</a>
+              </Link>
+            </li> */}
+            <li>
+              <Link href="/resume" legacyBehavior>
+                <a className="hover:text-yellow-500 transition-colors duration-200">Resume</a>
+              </Link>
             </li>
             <li>
-              <Link href="/portfolio">Portfolio</Link>
-            </li>
-            <li>
-              <Link href="/resume">Resume</Link>
-            </li>
-            <li>
-              <Link href="/contact">Contact</Link>
+              <Link href="/contact" legacyBehavior>
+                <a className="hover:text-yellow-500 transition-colors duration-200">Contact</a>
+              </Link>
             </li>
           </ul>
         </nav>

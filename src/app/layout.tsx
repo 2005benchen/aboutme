@@ -18,7 +18,6 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.ico",
   },
-
 };
 
 export default function RootLayout({
@@ -27,17 +26,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <title>Ben Chen - Portfolio</title>
         {/* Explicitly reference the favicon */}
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         {children}
       </body>
     </html>
   );
 }
-

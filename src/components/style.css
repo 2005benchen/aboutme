@@ -1,0 +1,134 @@
+/* Container for positioning the toggle */
+.toggle-container {
+    position: fixed; /* Fixed positioning relative to the viewport */
+    top: 20px;       /* Distance from the top */
+    right: 20px;     /* Distance from the right */
+    z-index: 1000;   /* Ensures it stays above other elements */
+}
+
+/* Scaled-down toggle */
+.toggle {
+    height: 50px; /* Reduced from 100px */
+    width: 100px; /* Reduced from 200px */
+    border-radius: 25px; /* Reduced from 50px */
+    background-image: linear-gradient(aqua, skyblue);
+    position: relative;
+    cursor: pointer;
+    transition: background-image 0.3s ease; /* Smooth transition for theme change */
+}
+
+/* Night mode for the toggle */
+.toggle.night {
+    background-image: linear-gradient(midnightblue, rebeccapurple);
+}
+
+/* Scaled-down notch */
+.notch {
+    height: 45px; /* Reduced from 90px */
+    width: 45px;  /* Reduced from 90px */
+    border-radius: 50%;
+    background: yellow;
+    position: absolute;
+    top: 2.5px;    /* Adjusted for smaller toggle */
+    left: 2.5px;   /* Adjusted for smaller toggle */
+    box-shadow: 0 0 2.5px yellow; /* Reduced shadow size */
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+/* Crater styling */
+.notch > .crater {
+    background: burlywood;
+    border-radius: 50%;
+    position: absolute;
+    opacity: 0;
+    box-shadow: 0 2.5px 2.5px rgba(0, 0, 0, 0.4) inset; /* Reduced shadow */
+}
+
+/* Show craters in night mode */
+.night .crater {
+    opacity: 0.4;
+}
+
+/* First crater */
+.crater:first-child {
+    left: 2.5px; /* Adjusted for smaller notch */
+    top: 7.5px;
+    height: 7.5px;
+    width: 20px;
+    transform: rotate(-45deg);
+}
+
+/* Second crater */
+.crater:last-child {
+    right: 5px;
+    top: 7.5px;
+    height: 7.5px;
+    width: 12.5px;
+    transform: rotate(45deg);
+}
+
+/* Adjust notch position in night mode */
+.night > .notch {
+    background: whitesmoke;
+    box-shadow: 0 0 2.5px whitesmoke;
+    transform: translate(50px, 0); /* Reduced translation */
+}
+
+/* Scaled-down shapes */
+.shape {
+    position: absolute;
+    background: whitesmoke;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.shape.sm {
+    height: 2.5px;  /* Reduced from 5px */
+    width: 25px;    /* Reduced from 50px */
+    top: 50%;
+    left: 60%;
+}
+
+.shape.md {
+    height: 5px;    /* Reduced from 10px */
+    width: 37.5px;  /* Reduced from 75px */
+    top: 12.5%;
+    left: 12.5%;
+    z-index: 2;
+}
+
+.shape.lg {
+    height: 7.5px;  /* Reduced from 15px */
+    width: 50px;    /* Reduced from 100px */
+    bottom: 10px;   /* Reduced from 20px */
+    left: 12.5%;
+}
+
+/* Night mode shapes */
+.night .shape {
+    background: lightgray;
+    box-shadow: 0 0 5px 1px violet;
+}
+
+.night .shape.sm {
+    height: 2.5px;  /* Reduced from 5px */
+    width: 2.5px;   /* Reduced from 5px */
+    transform: translate(-20px, 0); /* Reduced translation */
+}
+
+.night .shape.sm:first-of-type {
+    transform: translate(-40px, -5px); /* Reduced translation */
+}
+
+.night .shape.md {
+    height: 5px;    /* Reduced from 10px */
+    width: 5px;     /* Reduced from 10px */
+    transform: translate(5px, 0);  /* Adjusted translation */
+}
+
+.night .shape.lg {
+    height: 7.5px;  /* Reduced from 15px */
+    width: 7.5px;   /* Reduced from 15px */
+    transform: translate(-5px, 0); /* Adjusted translation */
+}

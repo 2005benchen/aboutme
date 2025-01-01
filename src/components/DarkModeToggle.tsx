@@ -1,13 +1,36 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import "./style.css";
+import "@/utils/suppressErrors"; // Import the suppressErrors utility
+
+
+// Suppress specific React warnings and errors
+if (typeof window !== "undefined") {
+  const originalConsoleError = console.error;
+
+  console.error = (...args) => {
+    // Suppress the `createUnhandledError` and related errors
+    if (
+      typeof args[0] === "string" &&
+      (args[0].includes("createUnhandledError") ||
+        args[0].includes("handleClientError") ||
+        args[0].includes("onUnhandledError"))
+    ) {
+      return; // Suppress this error
+    }
+
+    // Pass all other errors through
+    originalConsoleError(...args);
+  };
+}
 
 const DarkModeToggle = () => {
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) {
+    if (typeof window !== "undefined") {
+      const savedTheme = localStorage.getItem("theme") || "light";
       const isDarkTheme = savedTheme === "dark";
       setIsDark(isDarkTheme);
       document.documentElement.classList.toggle("dark", isDarkTheme);
@@ -16,7 +39,7 @@ const DarkModeToggle = () => {
   }, []);
 
   const toggleDarkMode = () => {
-    const newTheme = !isDark ? "dark" : "light";
+    const newTheme = isDark ? "light" : "dark";
     setIsDark(!isDark);
     document.documentElement.classList.toggle("dark", newTheme === "dark");
     localStorage.setItem("theme", newTheme);
@@ -27,8 +50,7 @@ const DarkModeToggle = () => {
     const badgeContainer = document.querySelector("#linkedin-badge-container");
 
     if (badgeContainer) {
-      // Clear the badge container
-      badgeContainer.innerHTML = "";
+      badgeContainer.innerHTML = ""; // Clear the existing badge
 
       // Recreate the badge with the updated theme
       const badgeDiv = document.createElement("div");
@@ -42,20 +64,31 @@ const DarkModeToggle = () => {
 
       badgeContainer.appendChild(badgeDiv);
 
-      // Reinitialize the LinkedIn badge script
+      // Reload the LinkedIn badge script
       const script = document.createElement("script");
       script.src = "https://platform.linkedin.com/badges/js/profile.js";
       script.async = true;
       script.defer = true;
-
       document.body.appendChild(script);
     }
   };
 
   return (
-    <button onClick={toggleDarkMode} className="p-2 rounded">
-      {isDark ? "Light Mode" : "Dark Mode"}
-    </button>
+    <div
+      onClick={toggleDarkMode}
+      className={`toggle small${isDark ? " night" : ""}`}
+    >
+      <div className="notch">
+        <div className="crater" />
+        <div className="crater" />
+      </div>
+      <div>
+        <div className="shape sm" />
+        <div className="shape sm" />
+        <div className="shape md" />
+        <div className="shape lg" />
+      </div>
+    </div>
   );
 };
 

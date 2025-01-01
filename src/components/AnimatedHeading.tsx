@@ -1,5 +1,6 @@
 // src/components/AnimatedHeading.tsx
 "use client"; // Add this line
+import "@/utils/suppressErrors"; // Import the suppressErrors utility
 
 import { motion } from 'framer-motion';
 import React from 'react';

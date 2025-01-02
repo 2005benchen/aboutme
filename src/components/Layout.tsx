@@ -1,16 +1,60 @@
-//./src/components/Layout.tsx
+// src/components/Layout.tsx
 "use client";
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import DarkModeToggle from "./DarkModeToggle";
 import Head from "next/head";
-import Image from "next/image"; // <-- Use next/image instead of <img>
+import Image from "next/image"; // Use next/image instead of <img>
 import "@/utils/suppressErrors"; // If needed
+import AOS from "aos"; // Import AOS
+import "aos/dist/aos.css"; // Import AOS styles
+
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isScrolled, setIsScrolled] = useState(false);
 
+  // Effect to handle scroll position preservation
+  useEffect(() => {
+    // Function to restore scroll position
+    const restoreScrollPosition = () => {
+      const savedScrollPosition = sessionStorage.getItem("scrollPosition");
+      if (savedScrollPosition) {
+        // Parse the saved scroll position and scroll the window
+        const scrollY = parseInt(savedScrollPosition, 10);
+        window.scrollTo(0, scrollY);
+        // Remove the saved scroll position to avoid repeated scrolling
+        sessionStorage.removeItem("scrollPosition");
+      }
+    };
+
+    // Restore scroll position on component mount
+    restoreScrollPosition();
+
+    // Initialize AOS after restoring scroll to prevent interference
+    AOS.init({
+      duration: 2000, // Animation duration in milliseconds
+      once: false, // Whether animation should happen only once - while scrolling down
+      mirror: true, // Whether elements should animate out while scrolling past them
+      // Optionally, you can disable AOS on specific conditions
+      // disable: 'mobile', // Example: Disable AOS on mobile devices
+    });
+
+    // Function to save scroll position before the page unloads
+    const handleBeforeUnload = () => {
+      sessionStorage.setItem("scrollPosition", window.scrollY.toString());
+    };
+
+    // Add event listener for beforeunload to save scroll position
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
+  }, []);
+
+  // Effect to handle scroll state for header background
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);

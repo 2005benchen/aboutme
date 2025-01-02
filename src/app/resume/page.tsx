@@ -1,10 +1,11 @@
 // src/app/resume/page.tsx
+
 "use client";
 import React from "react";
 import Head from "next/head";
 import Layout from "@/components/Layout";
 import AnimatedHeading from "@/components/AnimatedHeading";
-// Remove unused `useEffect` if you're not actually using it
+import { FaLinkedin, FaGithub } from "react-icons/fa"; // Import LinkedIn and GitHub icons
 
 const Resume = () => {
   return (
@@ -15,17 +16,35 @@ const Resume = () => {
       <section className="py-20 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-black">
         <div className="container mx-auto px-6">
           {/* Header Section */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-16" data-aos="fade-up">
             <AnimatedHeading title="Ben Chen" />
             <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
-              415-948-0106 | ben10chen@g.ucla.edu |{" "}
+                              {/* Phone Number */}
+              <a
+                href="tel:+14159480106"
+                className="text-blue-600 hover:underline dark:text-blue-400"
+              >
+                415-948-0106
+              </a>{"  "}
+              |{" "}
+              {/* Email Address */}
+              <a
+                href="mailto:2005benchen@gmail.com"
+                className="text-blue-600 hover:underline dark:text-blue-400"
+              >
+                2005benchen@gmail.com 
+              </a>
+              {" "}|{" "}
+
               <a
                 href="https://www.linkedin.com/in/ben10chen"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-600 hover:underline dark:text-blue-400"
+                data-aos="fade-right"
               >
-                LinkedIn
+                            <FaLinkedin className="inline-block text-lg" /> LinkedIn
+
               </a>{" "}
               |{" "}
               <a
@@ -33,27 +52,48 @@ const Resume = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-600 hover:underline dark:text-blue-400"
+                data-aos="fade-left"
               >
-                GitHub
-              </a>
+                <FaGithub className="inline-block text-lg" /> GitHub
+                </a>
             </p>
-            <div className="mt-6">
-              <a
-                href="/resume.pdf"
-                download
-                className="inline-block bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition"
-              >
-                Download PDF
-              </a>
-            </div>
+            <div className="mt-6" data-aos="zoom-in">
+  <a
+    href="/benchen_resume.pdf"
+    download
+    className="inline-block px-6 py-3 rounded-md transition bg-blue-600 text-white hover:bg-blue-700 
+      dark:bg-blue-500 dark:text-white dark:hover:bg-blue-600 shadow-md"
+    style={{
+      backgroundColor: "rgb(37, 99, 235)", // Explicit blue background for light mode
+    }}
+  >
+    Download PDF
+  </a>
+</div>
+
+
           </div>
 
           {/* Education Section */}
-          <div className="mb-12">
+          <div className="mb-12" data-aos="fade-up">
             <h2 className="text-3xl font-semibold text-blue-600 dark:text-blue-400 mb-4">
               Education
             </h2>
-            <div className="bg-white shadow-md rounded-lg p-6 dark:bg-gray-800 dark:text-gray-300">
+            <div className="bg-white shadow-md rounded-lg p-6 dark:bg-gray-800 dark:text-gray-300 relative" data-aos="fade-right">
+              {/* UCLA Logo */}
+              <a
+                href="https://www.ucla.edu"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute top-8 right-4"
+              >
+                <img
+                  src="/ucla-logo.png" // Update with the actual logo file name
+                  alt="UCLA Logo"
+                  className="h-12 w-auto"
+                />
+              </a>
+
               <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100">
                 University of California, Los Angeles (UCLA)
               </h3>
@@ -77,7 +117,7 @@ const Resume = () => {
           </div>
 
           {/* Experience Section */}
-          <div className="mb-12">
+          <div className="mb-12" data-aos="fade-up">
             <h2 className="text-3xl font-semibold text-blue-600 dark:text-blue-400 mb-4">
               Experience
             </h2>
@@ -91,8 +131,9 @@ const Resume = () => {
                   "Implemented Cloud Security Posture Management (CSPM) solutions on Wiz for Walmart’s PCI cloud environment, ensuring continuous compliance & securing billions of dollars in online payment info & consumer data privacy.",
                   "Programmed eight different custom Cloud Configuration Rules using Rego scripting that continuously runs against Walmart’s PCI cloud architecture, which has generated a total of 933 findings & 105 security issues.",
                   "Enhanced cloud security by delivering weekly system compliance reports & automatic issue detection email notification integration system, increasing PCI compliance security stakeholder awareness.",
-                  "Developed Proof-of-Concept to automate 24.4% of all PCI requirements using Wiz, saving thousands of dollars of workhours and improving cloud posture by identifying previously undetected misconfigurations."
+                  "Developed Proof-of-Concept to automate 24.4% of all PCI requirements using Wiz, saving thousands of dollars of workhours and improving cloud posture by identifying previously undetected misconfigurations.",
                 ],
+                walmart: true, // Indicate Walmart Global Tech involvement
               },
               {
                 title: "AI Security Shadow",
@@ -101,8 +142,9 @@ const Resume = () => {
                 location: "Bentonville, AR",
                 points: [
                   "Observed the implementation of machine learning models trained on Windows commands datasets to enhance identification and mitigation of internal organizational threats through User Entity & Behavior Analysis (UEBA).",
-                  "Studied the specific roles of machine learning models in embedding, dimensionality reduction, outlier detection, & pattern interpretation within an IAM model production pipeline using DevSecOps principles."
+                  "Studied the specific roles of machine learning models in embedding, dimensionality reduction, outlier detection, & pattern interpretation within an IAM model production pipeline using DevSecOps principles.",
                 ],
+                walmart: true, // Indicate Walmart Global Tech involvement
               },
               {
                 title: "Deep Learning Research Intern",
@@ -111,14 +153,54 @@ const Resume = () => {
                 location: "San Francisco, CA",
                 points: [
                   "Established STM32 & ESP32 asynchronous communication by optimizing remote PC-based operations with on-device protocols, boosting transmission efficiency by 30% and eliminated cybersecurity risks.",
-                  "Engineered Bluetooth connection between Myo armband and ESP32, implemented UART protocol for data transmissions onto STM32 microcontroller, ensuring a robust data pipeline to finetune on-device CNN models."
+                  "Engineered Bluetooth connection between Myo armband and ESP32, implemented UART protocol for data transmissions onto STM32 microcontroller, ensuring a robust data pipeline to finetune on-device CNN models.",
                 ],
+                sfsu: true, // Indicate San Francisco State involvement
               },
             ].map((job, index) => (
-              <div
+
+                <div
                 key={index}
-                className="bg-white shadow-md rounded-lg p-6 mb-6 dark:bg-gray-800 dark:text-gray-300"
+                className="bg-white shadow-md rounded-lg p-6 mb-6 relative dark:bg-gray-800 dark:text-gray-300"
+                data-aos={index % 2 === 0 ? "fade-left" : "fade-right"} // Alternating fade effect
               >
+                {/* Walmart Global Tech Logo */}
+                {job.walmart && (
+                  <a
+                    href="https://tech.walmart.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute top-8 right-4"
+                  >
+                    <img
+                      src="/walmartdarkmode.png" // Dark mode logo
+                      alt="Walmart Global Tech Logo"
+                      className="h-8 w-auto hidden dark:block" 
+                    />
+                    <img
+                      src="/walmartglobaltechlogo.png" // Default logo
+                      alt="Walmart Global Tech Logo"
+                      className="h-8 w-auto dark:hidden"
+                    />
+                  </a>
+                )}
+            
+                {/* San Francisco State Logo */}
+                {job.sfsu && (
+                  <a
+                    href="https://www.sfsu.edu/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute top-4 right-4"
+                  >
+                    <img
+                      src="/san-francisco-state-gators-seeklogo.png"
+                      alt="San Francisco State University Logo"
+                      className="h-20 w-auto" // Larger size
+                    />
+                  </a>
+                )}
+            
                 <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100">
                   {job.title}
                 </h3>
@@ -135,12 +217,13 @@ const Resume = () => {
             ))}
           </div>
 
+
           {/* Projects Section */}
-          <div className="mb-12">
+          <div className="mb-12" data-aos="fade-up">
             <h2 className="text-3xl font-semibold text-blue-600 dark:text-blue-400 mb-4">
               Projects
             </h2>
-            <div className="bg-white shadow-md rounded-lg p-6 dark:bg-gray-800 dark:text-gray-300">
+            <div className="bg-white shadow-md rounded-lg p-6 dark:bg-gray-800 dark:text-gray-300" data-aos="fade-right">
               <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100">
                 GDPR Compliance Machine Learning
               </h3>
@@ -165,7 +248,7 @@ const Resume = () => {
                 </li>
               </ul>
             </div>
-            <div className="bg-white shadow-md rounded-lg p-6 mt-6 dark:bg-gray-800 dark:text-gray-300">
+            <div className="bg-white shadow-md rounded-lg p-6 mt-6 dark:bg-gray-800 dark:text-gray-300" data-aos="fade-left">
               <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100">
                 URL Threat Analyzer Website + Chrome Extension
               </h3>
@@ -192,7 +275,7 @@ const Resume = () => {
           </div>
 
           {/* Technical Skills Section */}
-          <div className="mb-12">
+          <div className="mb-12" data-aos="fade-up">
             <h2 className="text-3xl font-semibold text-blue-600 dark:text-blue-400 mb-4">
               Technical Skills
             </h2>

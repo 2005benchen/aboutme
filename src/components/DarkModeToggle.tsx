@@ -10,7 +10,7 @@ if (typeof window !== "undefined") {
   const originalConsoleError = console.error;
 
   console.error = (...args) => {
-    // Suppress the `createUnhandledError` and related errors
+    // Suppress the createUnhandledError and related errors
     if (
       typeof args[0] === "string" &&
       (args[0].includes("createUnhandledError") ||
@@ -77,7 +77,7 @@ const DarkModeToggle = () => {
     <div
       onClick={toggleDarkMode}
       className={`toggle small${isDark ? " night" : ""}`}
-    >
+      >
       <div className="notch">
         <div className="crater" />
         <div className="crater" />

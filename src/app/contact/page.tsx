@@ -1,11 +1,9 @@
-// src/app/contact/page.tsx
 "use client";
 
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Layout from "@/components/Layout";
 import AnimatedHeading from "@/components/AnimatedHeading";
-// Remove the unused import for LinkedInBadge
 import SuppressClientErrors from "@/components/SuppressClientErrors";
 
 const Contact = () => {
@@ -16,38 +14,13 @@ const Contact = () => {
   const [successMessage, setSuccessMessage] = useState("");
 
   useEffect(() => {
-    // Check the current theme from localStorage
-    const currentTheme = (localStorage.getItem("theme") || "light") as "light" | "dark";
-    loadLinkedInBadge(currentTheme);
-  }, []);
-
-  const loadLinkedInBadge = (theme: "light" | "dark") => {
-    const badgeContainer = document.querySelector("#linkedin-badge-container");
-
-    if (badgeContainer) {
-      // Clear the badge container
-      badgeContainer.innerHTML = "";
-
-      // Create the badge element
-      const badgeDiv = document.createElement("div");
-      badgeDiv.className = "badge-base LI-profile-badge";
-      badgeDiv.setAttribute("data-locale", "en_US");
-      badgeDiv.setAttribute("data-size", "large");
-      badgeDiv.setAttribute("data-theme", theme);
-      badgeDiv.setAttribute("data-type", "HORIZONTAL");
-      badgeDiv.setAttribute("data-vanity", "ben10chen");
-      badgeDiv.setAttribute("data-version", "v1");
-
-      badgeContainer.appendChild(badgeDiv);
-
-      // Load the LinkedIn badge script
-      const script = document.createElement("script");
-      script.src = "https://platform.linkedin.com/badges/js/profile.js";
-      script.async = true;
-      script.defer = true;
-      document.body.appendChild(script);
+    // Initialize AOS on the client
+    if (typeof window !== "undefined") {
+      import("aos").then((AOS) => {
+        AOS.init({ duration: 2000, once: false, mirror: true });
+      });
     }
-  };
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -87,29 +60,29 @@ const Contact = () => {
       <Head>
         <title>Contact Me - Ben Chen</title>
       </Head>
-      <section className="py-20 bg-gradient-to-br from-blue-50 to-white dark:from-gray-900 dark:to-black">
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-black">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-10">
+          {/* Header Section */}
+          <div className="text-center mb-10" data-aos="fade-up">
             <AnimatedHeading title="Contact Me" />
             <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
-              Feel free to reach out for collaborations or just a friendly chat!
+              Feel free to reach out for opportunities or just a friendly chat!
             </p>
-
-            {/* LinkedIn Badge Container */}
-            <div
-              id="linkedin-badge-container"
-              className="my-6 mx-auto flex justify-center"
-            ></div>
           </div>
 
+          {/* Contact Form */}
           <form
             onSubmit={handleSubmit}
             className="bg-white shadow-md rounded-lg p-8 dark:bg-gray-800 dark:text-gray-300"
+            data-aos="fade-up"
+            data-aos-delay="400"
           >
             {successMessage && (
-              <p className="text-center text-green-500 mb-4">{successMessage}</p>
+              <p className="text-center text-green-500 mb-4" data-aos="fade-in">
+                {successMessage}
+              </p>
             )}
-            <div className="mb-6">
+            <div className="mb-6" data-aos="fade-right">
               <label
                 htmlFor="name"
                 className="block text-sm font-medium text-gray-700 dark:text-gray-300"
@@ -126,7 +99,7 @@ const Contact = () => {
               />
             </div>
 
-            <div className="mb-6">
+            <div className="mb-6" data-aos="fade-left">
               <label
                 htmlFor="email"
                 className="block text-sm font-medium text-gray-700 dark:text-gray-300"
@@ -143,7 +116,7 @@ const Contact = () => {
               />
             </div>
 
-            <div className="mb-6">
+            <div className="mb-6" data-aos="fade-right">
               <label
                 htmlFor="message"
                 className="block text-sm font-medium text-gray-700 dark:text-gray-300"
@@ -162,18 +135,31 @@ const Contact = () => {
                 className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600"
                 required
               ></textarea>
-              <p className="text-sm text-gray-500 dark:text-gray-400">
+              <p className="text-sm text-gray-500 dark:text-gray-400" data-aos="fade-up" data-aos-delay="200">
                 {charCount} characters remaining
               </p>
             </div>
 
             <button
-              type="submit"
-              className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600"
-            >
-              Send Message
-            </button>
+        type="submit"
+        className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition shadow-md"
+        style={{
+          backgroundColor: "rgb(37, 99, 235)", // Explicit blue background for light mode
+        }}
+        data-aos="zoom-in"
+        data-aos-delay="300"
+      >
+        Send Message
+      </button>
           </form>
+
+          {/* LinkedIn Badge Container */}
+          <div
+            id="linkedin-badge-container"
+            className="my-6 mx-auto flex justify-center"
+            data-aos="fade-up"
+            data-aos-delay="500"
+          ></div>
         </div>
       </section>
     </Layout>

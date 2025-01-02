@@ -1,9 +1,12 @@
+// src/app/contact/page.tsx
 "use client";
 
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Layout from "@/components/Layout";
 import AnimatedHeading from "@/components/AnimatedHeading";
+// Remove the unused import for LinkedInBadge
+import SuppressClientErrors from "@/components/SuppressClientErrors";
 
 const Contact = () => {
   const [name, setName] = useState("");
@@ -17,7 +20,6 @@ const Contact = () => {
     const currentTheme = (localStorage.getItem("theme") || "light") as "light" | "dark";
     loadLinkedInBadge(currentTheme);
   }, []);
-  
 
   const loadLinkedInBadge = (theme: "light" | "dark") => {
     const badgeContainer = document.querySelector("#linkedin-badge-container");
@@ -80,6 +82,8 @@ const Contact = () => {
 
   return (
     <Layout>
+      <SuppressClientErrors />
+
       <Head>
         <title>Contact Me - Ben Chen</title>
       </Head>

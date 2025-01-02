@@ -104,13 +104,6 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               </Link>
             </li>
             <li>
-              <Link href="/about" legacyBehavior>
-                <a className="hover:text-yellow-500 transition-colors duration-200">
-                  About
-                </a>
-              </Link>
-            </li>
-            <li>
               <Link href="/resume" legacyBehavior>
                 <a className="hover:text-yellow-500 transition-colors duration-200">
                   Resume

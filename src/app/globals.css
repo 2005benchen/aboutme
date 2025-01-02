@@ -29,3 +29,7 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+.tutorial_link {
+  display: none !important;
+}

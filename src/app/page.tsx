@@ -1,111 +1,135 @@
 // src/app/page.tsx
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Head from "next/head";
 import Layout from "@/components/Layout";
 import Image from "next/image";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-
-
 const Home = () => {
   const [isLoaded, setIsLoaded] = useState(false);
-  useEffect(() => {
+  const [showArrow, setShowArrow] = useState(true);
+  const arrowRef = useRef<HTMLDivElement>(null);
+  const sentinelRef = useRef<HTMLDivElement>(null);
 
-    
+  useEffect(() => {
+    // Initialize AOS
     AOS.init({
       duration: 2000,
       once: false,
       mirror: true,
     });
-  
-    // Remove pixelate effect after image is loaded
+
+    // Load hero image
     const image = new window.Image();
-    image.src = "/ben1.jpeg"; // Ensure this path is correct
-    image.onload = () => {
-      setIsLoaded(true);
+    image.src = "/ben1.jpeg";
+    image.onload = () => setIsLoaded(true);
+
+    // Set up IntersectionObserver for the sentinel
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setShowArrow(false); // Hide the arrow when sentinel is in view
+          } else {
+            setShowArrow(true); // Show the arrow when sentinel is out of view
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1, // Trigger when 10% of the sentinel is visible
+      }
+    );
+
+    if (sentinelRef.current) {
+      observer.observe(sentinelRef.current);
+    }
+
+    // Cleanup the observer on unmount
+    return () => {
+      if (sentinelRef.current) {
+        observer.unobserve(sentinelRef.current);
+      }
     };
-  
   }, []);
 
-
   return (
-
-    
     <Layout>
       <Head>
         <title>Home - Ben Chen</title>
       </Head>
 
-      
       <section
-  className="relative min-h-screen bg-gradient-to-br from-blue-50 to-white dark:from-darkBlue dark:to-black px-6"
-  // data-aos="fade-up"
->
-  {/* Full-Screen Hero Image */}
-  <div className="absolute inset-0">
-    <Image
-      src="/benjamin.jpeg" // Ensure this image exists in the /public directory
-      alt="Ben Chen"
-      fill
-      style={{ objectFit: "cover" }}
-      className={`object-cover ${!isLoaded ? "animate-pixelate" : "animate-none"}`}
-      priority
-    />
-    {/* Overlay */}
-    <div className="absolute inset-0 bg-black opacity-30"></div>
-  </div>
-{/* Content Overlay */}
-<div className="absolute bottom-44 left-0 right-0 z-10 text-center">
-  <h1
-    className="text-5xl md:text-6xl lg:text-7xl font-bold text-white"
-    data-aos="fade-left"
-  >
-    This is Ben Chen
-  </h1>
-
-  <div className="mt-4">
-    {/* Staggered fade-in animations for each line */}
-    <p className="text-2xl md:text-3xl lg:text-4xl text-white tracking-wider">
-      {/* Each phrase is wrapped in a span with staggered animations */}
-      <span
-        className="inline-block"
-        data-aos="fade-right"
-        data-aos-delay="500"
+        className="relative min-h-screen bg-gradient-to-br from-blue-50 to-white dark:from-darkBlue dark:to-black px-6"
       >
-        Security Engineer,
-      </span>{" "}
-      <span
-        className="inline-block"
-        data-aos="fade-right"
-        data-aos-delay="1000"
-      >
-        UCLA Student,
-      </span>{" "}
-      <span
-        className="inline-block"
-        data-aos="fade-right"
-        data-aos-delay="1500"
-      >
-        Tech Geek,
-      </span>{" "}
-      <span
-        className="inline-block"
-        data-aos="fade-right"
-        data-aos-delay="2000"
-      >
-        Everything Nerd.
-      </span>
-    </p>
-  </div>
-</div>
+        {/* Full-Screen Hero Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/benjamin.jpeg" // Ensure this image exists in the /public directory
+            alt="Ben Chen"
+            fill
+            style={{ objectFit: "cover" }}
+            className={`object-cover ${!isLoaded ? "animate-pixelate" : "animate-none"}`}
+            priority
+          />
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-black opacity-30"></div>
+        </div>
 
+        {/* Content Overlay */}
+        <div className="absolute bottom-44 left-0 right-0 z-10 text-center">
+          <h1
+            className="text-5xl md:text-6xl lg:text-7xl font-bold text-white"
+            data-aos="fade-left"
+          >
+            This is Ben Chen
+          </h1>
 
-</section>
+          <div className="mt-4">
+            <p className="text-2xl md:text-3xl lg:text-4xl text-white tracking-wider">
+              <span className="inline-block" data-aos="fade-right" data-aos-delay="500">
+                Security Engineer,
+              </span>{" "}
+              <span className="inline-block" data-aos="fade-right" data-aos-delay="1000">
+                UCLA Student,
+              </span>{" "}
+              <span className="inline-block" data-aos="fade-right" data-aos-delay="1500">
+                Tech Geek,
+              </span>{" "}
+              <span className="inline-block" data-aos="fade-right" data-aos-delay="2000">
+                Everything Nerd.
+              </span>
+            </p>
+          </div>
+        </div>
 
+        {/* Bouncing Arrow */}
+        <div
+          ref={arrowRef}
+          className={`absolute bottom-24 left-1/2 transform -translate-x-1/2 animate-bounceSlow transition-opacity duration-500 ${
+            showArrow ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-10 w-10 text-white"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          </svg>
+        </div>
+      </section>
 
+      {/* Sentinel Element */}
+      <div ref={sentinelRef} className="h-1"></div>
+
+      {/* --- Rest of Your Page Sections --- */}
       {/* Professional Summary */}
       <section
         className="container mx-auto py-24 px-6"
@@ -279,34 +303,32 @@ const Home = () => {
 
       {/* LinkedIn Embed Section */}
       <section className="container bg-secondary dark:bg-darkBlue mx-auto py-24 px-6 relative">
-  <h2 className="text-4xl md:text-5xl font-semibold mb-12 text-center text-primary dark:text-secondary">
-    Latest LinkedIn Activity
-  </h2>
+        <h2 className="text-4xl md:text-5xl font-semibold mb-12 text-center text-primary dark:text-secondary" data-aos="zoom-in-down">
+          Latest LinkedIn Activity
+        </h2>
 
-  <div className="flex justify-center items-center relative">
-    {/* The iFrame */}
-    <iframe
-      src="https://widgets.sociablekit.com/linkedin-profile-posts/iframe/25504736"
-      frameBorder="0"
-      width="100%"
-      height="1650"
-      className="relative z-0"
-    />
+        <div className="flex justify-center items-center relative" data-aos="zoom-in-up">
+          {/* The iFrame */}
+          <iframe
+            src="https://widgets.sociablekit.com/linkedin-profile-posts/iframe/25504736"
+            frameBorder="0"
+            width="100%"
+            height="1650"
+            className="relative z-0"
+          />
 
-    {/* The overlay that covers a specific portion of the iframe */}
-    <div
-      className="absolute z-10 bg-primary dark:bg-darkBlue"
-      style={{
-        width: "2500px",
-        height: "40px",
-        bottom: "0",   // or some offset from the bottom
-        right: "250",    // or left or wherever the link is
-        // adjust these values to cover the link
-      }}
-    ></div>
-  </div>
-</section>
-
+          {/* The overlay that covers a specific portion of the iframe */}
+          <div
+            className="absolute z-10 bg-primary dark:bg-darkBlue"
+            style={{
+              width: "2500px",
+              height: "40px",
+              bottom: "0", // Adjust as needed
+              right: "250px", // Adjust as needed
+            }}
+          ></div>
+        </div>
+      </section>
     </Layout>
   );
 };

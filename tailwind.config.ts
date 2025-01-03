@@ -10,6 +10,9 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily:{
+        sans:['"Proxima Nova"', 'sans-serif'],
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",

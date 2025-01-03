@@ -7,28 +7,19 @@ import Layout from "@/components/Layout";
 import Image from "next/image";
 import AOS from "aos";
 import "aos/dist/aos.css";
-// import ScrollVideoSection from "@/components/ScrollVideoSection";
+
 
 
 const Home = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
+
+    
     AOS.init({
       duration: 2000,
       once: false,
       mirror: true,
     });
-  
-    // Dynamically load the LinkedIn widget script
-    const scriptId = "linkedin-widget-script";
-    if (!document.getElementById(scriptId)) {
-      const script = document.createElement("script");
-      script.id = scriptId;
-      script.src = "https://widgets.sociablekit.com/linkedin-profile-posts/widget.js";
-      script.async = true;
-      script.defer = true;
-      document.body.appendChild(script);
-    }
   
     // Remove pixelate effect after image is loaded
     const image = new window.Image();
@@ -37,15 +28,18 @@ const Home = () => {
       setIsLoaded(true);
     };
   
-    // Removed the cleanup function to prevent script removal
   }, []);
-  
+
+
   return (
+
+    
     <Layout>
       <Head>
         <title>Home - Ben Chen</title>
       </Head>
 
+      
       <section
   className="relative min-h-screen bg-gradient-to-br from-blue-50 to-white dark:from-darkBlue dark:to-black px-6"
   // data-aos="fade-up"
@@ -284,26 +278,34 @@ const Home = () => {
       </section>
 
       {/* LinkedIn Embed Section */}
-      <section
-        className="container bg-secondary dark:bg-darkBlue mx-auto py-24 px-6"
-        data-aos="fade-up"
-      >
-        <h2 className="text-4xl md:text-5xl font-semibold mb-12 text-center text-primary dark:text-secondary">
-          Latest LinkedIn Activity
-        </h2>
-        <div
-          className="flex justify-center items-center"
-          data-aos="zoom-in"
-          data-aos-delay="300"
-        >
-          <div className="sk-ww-linkedin-profile-post" data-embed-id="25504736"></div>
-        </div>
-      </section>
-      {/* Additional Space */}
-      <div className="py-24"></div>
+      <section className="container bg-secondary dark:bg-darkBlue mx-auto py-24 px-6 relative">
+  <h2 className="text-4xl md:text-5xl font-semibold mb-12 text-center text-primary dark:text-secondary">
+    Latest LinkedIn Activity
+  </h2>
 
+  <div className="flex justify-center items-center relative">
+    {/* The iFrame */}
+    <iframe
+      src="https://widgets.sociablekit.com/linkedin-profile-posts/iframe/25504736"
+      frameBorder="0"
+      width="100%"
+      height="1650"
+      className="relative z-0"
+    />
 
-      {/* <ScrollVideoSection videoSrc="/scroll-video.mp4" /> */}
+    {/* The overlay that covers a specific portion of the iframe */}
+    <div
+      className="absolute z-10 bg-primary dark:bg-darkBlue"
+      style={{
+        width: "2500px",
+        height: "40px",
+        bottom: "0",   // or some offset from the bottom
+        right: "250",    // or left or wherever the link is
+        // adjust these values to cover the link
+      }}
+    ></div>
+  </div>
+</section>
 
     </Layout>
   );

@@ -1,8 +1,9 @@
+//aboutme/src/app/layout.tsx
+
 import type { Metadata } from "next";
 import "./globals.css";
 import "@/utils/suppressErrors"; // If you have a suppressErrors utility
 // Remove geistSans and geistMono if you're not using them:
-import DarkModeToggle from "@/components/DarkModeToggle"; // Adjust the path as necessary
 
 export const metadata: Metadata = {
   title: "Ben Chen!",

@@ -109,7 +109,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           <div className="flex-1">
             <Link href="/" legacyBehavior>
               <a
-                className="flex items-center gap-4"
+                className="flex items-center gap-4 hover:text-yellow-500 transition-colors duration-200"
                 onClick={(e) => {
                   if (pathname === "/") {
                     e.preventDefault(); // Prevent default navigation

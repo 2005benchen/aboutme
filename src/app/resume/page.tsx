@@ -74,47 +74,53 @@ const Resume = () => {
 
           </div>
 
-          {/* Education Section */}
-          <div className="mb-12" data-aos="fade-up">
-            <h2 className="text-3xl font-semibold text-blue-600 dark:text-blue-400 mb-4">
-              Education
-            </h2>
-            <div className="bg-white shadow-md rounded-lg p-6 dark:bg-gray-800 dark:text-gray-300 relative" data-aos="fade-right">
-              {/* UCLA Logo */}
-              <a
-                href="https://www.ucla.edu"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="absolute top-8 right-4"
-              >
-                <img
-                  src="/ucla-logo.png" // Update with the actual logo file name
-                  alt="UCLA Logo"
-                  className="h-12 w-auto"
-                />
-              </a>
+{/* Education Section */}
+<div className="mb-12" data-aos="fade-up">
+  <h2 className="text-3xl font-semibold text-blue-600 dark:text-blue-400 mb-4">
+    Education
+  </h2>
+  <div
+    className="bg-white shadow-md rounded-lg p-6 dark:bg-gray-800 dark:text-gray-300 relative flex flex-col md:flex-row-reverse items-start md:items-center"
+    data-aos="fade-right"
+  >
+    {/* UCLA Logo */}
+    <a
+      href="https://www.ucla.edu"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="mb-4 md:mb-0 md:ml-6 flex-shrink-0"
+    >
+      <img
+        src="/ucla-logo.png" // Update with the actual logo file name
+        alt="UCLA Logo"
+        className="h-12 w-auto"
+      />
+    </a>
 
-              <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100">
-                University of California, Los Angeles (UCLA)
-              </h3>
-              <p className="text-gray-600 dark:text-gray-400">
-                Expected Graduation in Jun 2026
-              </p>
-              <p className="mt-2 text-gray-800 dark:text-gray-200">
-                Bachelor&apos;s in Computer Science &amp; Linguistics, Los Angeles, CA
-              </p>
-              <ul className="mt-4 list-disc pl-5 text-gray-700 dark:text-gray-300">
-                <li>
-                  Relevant Coursework: Data Structures; Algorithms and Complexity; Software Construction;
-                  Machine Learning; Computational Linguistics; Functional Programming; Computer Security.
-                </li>
-                <li>
-                  Awards &amp; Activities: Regents Scholar (top 0.05% of UCLA applicants); ACM Cyber Team; UCLA CTF
-                  Team
-                </li>
-              </ul>
-            </div>
-          </div>
+    {/* Education Details */}
+    <div>
+      <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100">
+        University of California, Los Angeles (UCLA)
+      </h3>
+      <p className="text-gray-600 dark:text-gray-400">
+        Expected Graduation in Jun 2026
+      </p>
+      <p className="mt-2 text-gray-800 dark:text-gray-200">
+        Bachelor&apos;s in Computer Science &amp; Linguistics, Los Angeles, CA
+      </p>
+      <ul className="mt-4 list-disc pl-5 text-gray-700 dark:text-gray-300">
+        <li>
+          Relevant Coursework: Data Structures; Algorithms and Complexity; Software Construction;
+          Machine Learning; Computational Linguistics; Functional Programming; Computer Security.
+        </li>
+        <li>
+          Awards &amp; Activities: Regents Scholar (top 0.05% of UCLA applicants); ACM Cyber Team; UCLA CTF
+          Team
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
 
           {/* Experience Section */}
           <div className="mb-12" data-aos="fade-up">
@@ -158,72 +164,76 @@ const Resume = () => {
                 sfsu: true, // Indicate San Francisco State involvement
               },
             ].map((job, index) => (
-
-                <div
+              <div
                 key={index}
-                className="bg-white shadow-md rounded-lg p-6 mb-6 relative dark:bg-gray-800 dark:text-gray-300"
+                className={`bg-white shadow-md rounded-lg p-6 mb-6 dark:bg-gray-800 dark:text-gray-300 flex flex-col md:flex-row-reverse items-start md:items-center`}
                 data-aos={index % 2 === 0 ? "fade-left" : "fade-right"} // Alternating fade effect
               >
-                {/* Walmart Global Tech Logo */}
+                {/* Company Logo */}
                 {job.walmart && (
                   <a
                     href="https://tech.walmart.com/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="absolute top-8 right-4"
+                    className="mb-4 md:mb-0 md:ml-6 flex-shrink-0" // Changed md:mr-6 to md:ml-6
                   >
-                    <img
-                      src="/walmartdarkmode.png" // Dark mode logo
-                      alt="Walmart Global Tech Logo"
-                      className="h-8 w-auto hidden dark:block" 
-                    />
                     <img
                       src="/walmartglobaltechlogo.png" // Default logo
                       alt="Walmart Global Tech Logo"
                       className="h-8 w-auto dark:hidden"
                     />
+                    <img
+                      src="/walmartdarkmode.png" // Dark mode logo
+                      alt="Walmart Global Tech Logo"
+                      className="h-8 w-auto hidden dark:block"
+                    />
                   </a>
                 )}
-            
+
                 {/* San Francisco State Logo */}
                 {job.sfsu && (
                   <a
                     href="https://www.sfsu.edu/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="absolute top-4 right-4"
+                    className="mb-4 md:mb-0 md:ml-6 flex-shrink-0" // Changed md:mr-6 to md:ml-6
                   >
                     <img
                       src="/san-francisco-state-gators-seeklogo.png"
                       alt="San Francisco State University Logo"
-                      className="h-20 w-auto" // Larger size
+                      className="h-12 w-auto"
                     />
                   </a>
                 )}
-            
-                <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100">
-                  {job.title}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-400">
-                  {job.company}, {job.location}
-                </p>
-                <p className="text-gray-500 dark:text-gray-500">{job.duration}</p>
-                <ul className="mt-4 list-disc pl-5 text-gray-700 dark:text-gray-300">
-                  {job.points.map((point, i) => (
-                    <li key={i}>{point}</li>
-                  ))}
-                </ul>
+
+                {/* Job Details */}
+                <div>
+                  <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100">
+                    {job.title}
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-400">
+                    {job.company}, {job.location}
+                  </p>
+                  <p className="text-gray-500 dark:text-gray-500">{job.duration}</p>
+                  <ul className="mt-4 list-disc pl-5 text-gray-700 dark:text-gray-300">
+                    {job.points.map((point, i) => (
+                      <li key={i}>{point}</li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             ))}
           </div>
-
 
           {/* Projects Section */}
           <div className="mb-12" data-aos="fade-up">
             <h2 className="text-3xl font-semibold text-blue-600 dark:text-blue-400 mb-4">
               Projects
             </h2>
-            <div className="bg-white shadow-md rounded-lg p-6 dark:bg-gray-800 dark:text-gray-300" data-aos="fade-right">
+            <div
+              className="bg-white shadow-md rounded-lg p-6 dark:bg-gray-800 dark:text-gray-300 mb-6"
+              data-aos="fade-right"
+            >
               <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100">
                 GDPR Compliance Machine Learning
               </h3>
@@ -248,7 +258,10 @@ const Resume = () => {
                 </li>
               </ul>
             </div>
-            <div className="bg-white shadow-md rounded-lg p-6 mt-6 dark:bg-gray-800 dark:text-gray-300" data-aos="fade-left">
+            <div
+              className="bg-white shadow-md rounded-lg p-6 dark:bg-gray-800 dark:text-gray-300"
+              data-aos="fade-left"
+            >
               <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100">
                 URL Threat Analyzer Website + Chrome Extension
               </h3>

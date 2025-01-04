@@ -1,22 +1,31 @@
+/*aboutme/src/app/globals.css
+*/
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+.contact-header {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+}
+
 @font-face {
   font-family: "Proxima Nova";
-  src: url("/fonts/ProximaNova-Regular.woff2") format("woff2"),
-       url("/fonts/ProximaNova-Regular.woff") format("woff");
+  src: url("/fonts/Proxima-Nova-Regular.woff2") format("woff2"),
+       url("/fonts/Proxima-Nova-Regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Proxima Nova";
-  src: url("/fonts/ProximaNova-Bold.woff2") format("woff2"),
-       url("/fonts/ProximaNova-Bold.woff") format("woff");
+  src: url("/fonts/Proxima-Nova-Bold.woff2") format("woff2"),
+       url("/fonts/Proxima-Nova-Bold.woff") format("woff");
   font-weight: 700;
   font-style: normal;
 }
+
 
 :root {
   --background: #ffffff;
@@ -34,7 +43,9 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: var(--font-family);
+  /* font-family: var(--font-family); */
+  font-family: "Proxima Nova", sans-serif;
+
 }
 
 html {
@@ -57,3 +68,19 @@ html {
 .animate-bounce-slow {
   animation: bounce-slow 2s infinite;
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 2s ease-out forwards; /* 2 seconds fade-in on load */
+}
+

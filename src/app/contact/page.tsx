@@ -63,12 +63,19 @@ const Contact = () => {
       <section className="py-20 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-black">
         <div className="container mx-auto px-6">
           {/* Header Section */}
-          <div className="text-center mb-10" data-aos="fade-up">
-            <AnimatedHeading title="Contact Me" />
-            <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
-              Feel free to reach out for opportunities or just a friendly chat!
-            </p>
-          </div>
+
+          <header className="contact-header">
+  <div
+    className="flex flex-col justify-center items-center text-center mx-auto mb-10 max-w-4xl"
+    data-aos="fade-up"
+  >
+    <AnimatedHeading title="Contact Me" />
+    <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
+      Feel free to reach out for opportunities or just a friendly chat!
+    </p>
+  </div>
+</header>
+
 
           {/* Contact Form */}
           <form

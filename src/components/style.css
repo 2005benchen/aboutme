@@ -1,20 +1,19 @@
-/* Container for positioning the toggle */
-.toggle-container {
-    position: fixed; /* Fixed positioning relative to the viewport */
-    top: 20px;       /* Distance from the top */
-    right: 20px;     /* Distance from the right */
-    z-index: 1000;   /* Ensures it stays above other elements */
-}
+/* src/components/style.css */
 
-/* Scaled-down toggle */
+
+/* Base styles for the toggle */
 .toggle {
-    height: 50px; /* Reduced from 100px */
-    width: 100px; /* Reduced from 200px */
-    border-radius: 25px; /* Reduced from 50px */
+    width: 80px; /* Width of the toggle */
+    height: 40px; /* Height of the toggle */
+    border-radius: 30px; /* Rounded corners but not fully circular */
     background-image: linear-gradient(aqua, skyblue);
     position: relative;
     cursor: pointer;
     transition: background-image 0.3s ease; /* Smooth transition for theme change */
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: 5px; /* Add padding to center the notch */
 }
 
 /* Night mode for the toggle */
@@ -22,18 +21,24 @@
     background-image: linear-gradient(midnightblue, rebeccapurple);
 }
 
-/* Scaled-down notch */
+/* Notch styling (the switch handle) */
 .notch {
-    height: 45px; /* Reduced from 90px */
-    width: 45px;  /* Reduced from 90px */
-    border-radius: 50%;
+    width: 30px; /* Smaller than the height */
+    height: 30px;
+    border-radius: 50%; /* Keep it circular */
     background: yellow;
     position: absolute;
-    top: 2.5px;    /* Adjusted for smaller toggle */
-    left: 2.5px;   /* Adjusted for smaller toggle */
-    box-shadow: 0 0 2.5px yellow; /* Reduced shadow size */
+    left: 5px; /* Initial position for light mode */
+    box-shadow: 0 0 2.5px yellow;
     z-index: 1;
     transition: all 0.3s ease;
+}
+
+/* Adjust notch position in night mode */
+.night > .notch {
+    background: whitesmoke;
+    box-shadow: 0 0 2.5px whitesmoke;
+    transform: translateX(40px); /* Move to the right when toggled */
 }
 
 /* Crater styling */
@@ -42,7 +47,7 @@
     border-radius: 50%;
     position: absolute;
     opacity: 0;
-    box-shadow: 0 2.5px 2.5px rgba(0, 0, 0, 0.4) inset; /* Reduced shadow */
+    box-shadow: 0 2.5px 2.5px rgba(0, 0, 0, 0.4) inset;
 }
 
 /* Show craters in night mode */
@@ -50,32 +55,22 @@
     opacity: 0.4;
 }
 
-/* First crater */
+/* Crater positions */
 .crater:first-child {
-    left: 2.5px; /* Adjusted for smaller notch */
-    top: 7.5px;
-    height: 7.5px;
-    width: 20px;
-    transform: rotate(-45deg);
+    left: 15%;
+    top: 20%;
+    height: 10px;
+    width: 10px;
 }
 
-/* Second crater */
 .crater:last-child {
-    right: 5px;
-    top: 7.5px;
-    height: 7.5px;
-    width: 12.5px;
-    transform: rotate(45deg);
+    right: 15%;
+    top: 40%;
+    height: 8px;
+    width: 8px;
 }
 
-/* Adjust notch position in night mode */
-.night > .notch {
-    background: whitesmoke;
-    box-shadow: 0 0 2.5px whitesmoke;
-    transform: translate(50px, 0); /* Reduced translation */
-}
-
-/* Scaled-down shapes */
+/* Shapes inside toggle */
 .shape {
     position: absolute;
     background: whitesmoke;
@@ -84,25 +79,25 @@
 }
 
 .shape.sm {
-    height: 2.5px;  /* Reduced from 5px */
-    width: 25px;    /* Reduced from 50px */
+    height: 5px;
+    width: 20px;
     top: 50%;
     left: 60%;
 }
 
 .shape.md {
-    height: 5px;    /* Reduced from 10px */
-    width: 37.5px;  /* Reduced from 75px */
-    top: 12.5%;
-    left: 12.5%;
+    height: 10px;
+    width: 30px;
+    top: 25%;
+    left: 25%;
     z-index: 2;
 }
 
 .shape.lg {
-    height: 7.5px;  /* Reduced from 15px */
-    width: 50px;    /* Reduced from 100px */
-    bottom: 10px;   /* Reduced from 20px */
-    left: 12.5%;
+    height: 15px;
+    width: 40px;
+    bottom: 10px;
+    left: 20%;
 }
 
 /* Night mode shapes */
@@ -112,23 +107,19 @@
 }
 
 .night .shape.sm {
-    height: 2.5px;  /* Reduced from 5px */
-    width: 2.5px;   /* Reduced from 5px */
-    transform: translate(-20px, 0); /* Reduced translation */
-}
-
-.night .shape.sm:first-of-type {
-    transform: translate(-40px, -5px); /* Reduced translation */
+    height: 5px;
+    width: 5px;
+    transform: translate(-20%, 0);
 }
 
 .night .shape.md {
-    height: 5px;    /* Reduced from 10px */
-    width: 5px;     /* Reduced from 10px */
-    transform: translate(5px, 0);  /* Adjusted translation */
+    height: 10px;
+    width: 10px;
+    transform: translate(5%, 0);
 }
 
 .night .shape.lg {
-    height: 7.5px;  /* Reduced from 15px */
-    width: 7.5px;   /* Reduced from 15px */
-    transform: translate(-5px, 0); /* Adjusted translation */
+    height: 15px;
+    width: 15px;
+    transform: translate(-5%, 0);
 }

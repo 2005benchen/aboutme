@@ -1,31 +1,15 @@
+// src/components/DarkModeToggle.tsx
 "use client";
 
 import React, { useState, useEffect } from "react";
 import "./style.css";
 import "@/utils/suppressErrors"; // Import the suppressErrors utility
 
-
-// Suppress specific React warnings and errors
-if (typeof window !== "undefined") {
-  const originalConsoleError = console.error;
-
-  console.error = (...args) => {
-    // Suppress the createUnhandledError and related errors
-    if (
-      typeof args[0] === "string" &&
-      (args[0].includes("createUnhandledError") ||
-        args[0].includes("handleClientError") ||
-        args[0].includes("onUnhandledError"))
-    ) {
-      return; // Suppress this error
-    }
-
-    // Pass all other errors through
-    originalConsoleError(...args);
-  };
+interface DarkModeToggleProps {
+  className?: string; // Allow passing className for styling
 }
 
-const DarkModeToggle = () => {
+const DarkModeToggle: React.FC<DarkModeToggleProps> = ({ className }) => {
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
@@ -76,8 +60,10 @@ const DarkModeToggle = () => {
   return (
     <div
       onClick={toggleDarkMode}
-      className={`toggle small${isDark ? " night" : ""}`}
-      >
+      className={`toggle small${isDark ? " night" : ""} ${className}`}
+      aria-label="Toggle Dark Mode"
+      role="button"
+    >
       <div className="notch">
         <div className="crater" />
         <div className="crater" />

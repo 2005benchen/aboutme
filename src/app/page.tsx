@@ -205,7 +205,10 @@ const Home = () => {
         <h2 className="text-4xl md:text-5xl font-semibold mb-12 text-center text-[#403f3f] dark:text-[#FFFFFF]" data-aos="zoom-in-down">Latest LinkedIn Activity</h2>
         <div className="flex justify-center items-center relative" data-aos="zoom-in-up">
           <iframe src="https://widgets.sociablekit.com/linkedin-profile-posts/iframe/25504736" frameBorder="0" width="100%" height="1650" className="relative z-0" />
-          <div className="absolute z-10 bg-[#BADDFF] dark:bg-[#0D3B66]" style={{ width: "2500px", height: "40px", bottom: "0", right: "250px" }}></div>
+          <div
+  className="absolute z-10 bg-[#BADDFF] dark:bg-[#0D3B66]"
+  style={{ width: "100vw", height: "52px", bottom: "0", right: "0" }}
+></div>
         </div>
       </section>
       </section>

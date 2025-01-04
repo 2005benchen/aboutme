@@ -10,10 +10,12 @@ import "@/utils/suppressErrors"; // If needed
 import AOS from "aos"; // Import AOS
 import "aos/dist/aos.css"; // Import AOS styles
 import Script from "next/script";
+import { usePathname } from "next/navigation"; // Import usePathname
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname(); // Get the current path
 
   // Effect to handle scroll position preservation
   useEffect(() => {
@@ -102,21 +104,33 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             : "bg-transparent"
         } text-black dark:text-gray-200`}
       >
-        <div className="container mx-auto px-4 flex justify-between items-center h-full">
-          {/* Logo Section */}
-          <div className="flex items-center gap-4">
-            <Image
-              src="/ben.jpg"
-              alt="Ben Chen Logo"
-              className="rounded-full object-cover"
-              width={40}
-              height={40}
-            />
-            <h1 className="text-2xl">Ben Chen</h1>
+        <div className="container mx-auto px-4 flex items-center h-full">
+          {/* Left Section: Logo */}
+          <div className="flex-1">
+            <Link href="/" legacyBehavior>
+              <a
+                className="flex items-center gap-4"
+                onClick={(e) => {
+                  if (pathname === "/") {
+                    e.preventDefault(); // Prevent default navigation
+                    window.location.reload(); // Reload the page
+                  }
+                }}
+              >
+                <Image
+                  src="/ben.jpg"
+                  alt="Ben Chen Logo"
+                  className="rounded-full object-cover"
+                  width={40}
+                  height={40}
+                />
+                <h1 className="text-2xl">Ben Chen</h1>
+              </a>
+            </Link>
           </div>
 
-          {/* Desktop Navigation (hidden on small screens, displayed on md+) */}
-          <nav className="hidden md:flex space-x-6 items-center">
+          {/* Center Section: Navigation */}
+          <nav className="hidden md:flex space-x-6 items-center justify-center flex-1">
             <Link href="/" legacyBehavior>
               <a className="hover:text-yellow-500 transition-colors duration-200">Home</a>
             </Link>
@@ -128,42 +142,45 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             </Link>
           </nav>
 
-          {/* Dark Mode Toggle */}
-          <div className="flex items-center justify-center">
-            <DarkModeToggle className="w-8 h-8" />
-          </div>
+          {/* Right Section: Dark Mode Toggle and Hamburger */}
+          <div className="flex items-center justify-end flex-1">
+            {/* Dark Mode Toggle */}
+            <div className="flex items-center justify-center">
+              <DarkModeToggle className="w-8 h-8" />
+            </div>
 
-          {/* Mobile Hamburger Button */}
-          <div className="md:hidden ml-2">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="focus:outline-none flex items-center justify-center"
-              aria-label="Toggle Menu"
-            >
-              {!isMenuOpen ? (
-                <svg
-                  className="w-6 h-6 text-black dark:text-gray-200"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-              ) : (
-                <svg
-                  className="w-6 h-6 text-black dark:text-gray-200"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              )}
-            </button>
+            {/* Mobile Hamburger Button */}
+            <div className="md:hidden ml-2">
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="focus:outline-none flex items-center justify-center"
+                aria-label="Toggle Menu"
+              >
+                {!isMenuOpen ? (
+                  <svg
+                    className="w-6 h-6 text-black dark:text-gray-200"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+                ) : (
+                  <svg
+                    className="w-6 h-6 text-black dark:text-gray-200"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                )}
+              </button>
+            </div>
           </div>
         </div>
 

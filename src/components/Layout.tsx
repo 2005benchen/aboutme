@@ -5,42 +5,37 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import DarkModeToggle from "./DarkModeToggle";
 import Head from "next/head";
-import Image from "next/image"; // Use next/image instead of <img>
-import "@/utils/suppressErrors"; // If needed
-import AOS from "aos"; // Import AOS
-import "aos/dist/aos.css"; // Import AOS styles
+import Image from "next/image";
+import "@/utils/suppressErrors";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Script from "next/script";
-import { usePathname } from "next/navigation"; // Import usePathname
+import { usePathname } from "next/navigation";
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const pathname = usePathname(); // Get the current path
+  const pathname = usePathname();
 
-  // Effect to handle scroll position preservation
   useEffect(() => {
-    // Function to restore scroll position
+    // Restore scroll position & init AOS
     const restoreScrollPosition = () => {
       const savedScrollPosition = sessionStorage.getItem("scrollPosition");
       if (savedScrollPosition) {
-        // Parse and scroll the window
         const scrollY = parseInt(savedScrollPosition, 10);
         window.scrollTo(0, scrollY);
         sessionStorage.removeItem("scrollPosition");
       }
     };
-
-    // Restore scroll position on component mount
     restoreScrollPosition();
 
-    // Initialize AOS
     AOS.init({
       duration: 2000,
       once: false,
       mirror: true,
     });
 
-    // Save scroll position before the page unloads
+    // Save scroll position before unload
     const handleBeforeUnload = () => {
       sessionStorage.setItem("scrollPosition", window.scrollY.toString());
     };
@@ -51,27 +46,25 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     };
   }, []);
 
-  // Effect to handle scroll state for header background
+  // Track scroll for header background
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Initial check
+    handleScroll();
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
-  // Close mobile menu when window is resized to medium and above
+  // Close mobile menu on large resize
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768 && isMenuOpen) {
         setIsMenuOpen(false);
       }
     };
-
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, [isMenuOpen]);
@@ -86,7 +79,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
 
-      {/* Load SociableKit Script Globally */}
+      {/* Load SociableKit Script */}
       <Script
         src="https://widgets.sociablekit.com/linkedin-profile-posts/widget.js"
         strategy="afterInteractive"
@@ -112,8 +105,8 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 className="flex items-center gap-4 hover:text-yellow-500 transition-colors duration-200"
                 onClick={(e) => {
                   if (pathname === "/") {
-                    e.preventDefault(); // Prevent default navigation
-                    window.location.reload(); // Reload the page
+                    e.preventDefault();
+                    window.location.reload();
                   }
                 }}
               >
@@ -150,10 +143,11 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             </div>
 
             {/* Mobile Hamburger Button */}
+            {/* ADDED: hover:text-yellow-500 to match desktop link hover */}
             <div className="md:hidden ml-2">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="focus:outline-none flex items-center justify-center"
+                className="focus:outline-none flex items-center justify-center hover:text-yellow-500 transition-colors duration-200"
                 aria-label="Toggle Menu"
               >
                 {!isMenuOpen ? (
@@ -184,13 +178,19 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           </div>
         </div>
 
-        {/* Mobile Menu Dropdown with Animation */}
+        {/* Mobile Menu Dropdown with Animation, Rounded Corners */}
         <nav
-          className={`md:hidden absolute top-full left-0 w-full bg-white dark:bg-gray-800 z-40 shadow-lg transform transition-transform duration-300 ease-in-out ${
-            isMenuOpen
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 -translate-y-4 pointer-events-none"
-          }`}
+          className={`
+            md:hidden absolute top-full left-0 w-full 
+            bg-white dark:bg-gray-800 z-40 shadow-lg 
+            transform rounded-lg  /* <--- Rounded corners */
+            transition-all duration-500 ease-in-out /* <--- Smoother animation */
+            ${
+              isMenuOpen
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 -translate-y-4 pointer-events-none"
+            }
+          `}
         >
           <ul className="flex flex-col p-4 space-y-4 text-black dark:text-gray-200">
             <li>

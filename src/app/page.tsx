@@ -21,21 +21,23 @@ const Home = () => {
       once: false,
       mirror: true,
     });
-
+  
     // Load hero image
     const image = new window.Image();
     image.src = "/ben1.jpeg";
     image.onload = () => setIsLoaded(true);
-
+  
+    // Copy the current value of the ref
+    const currentSentinel = sentinelRef.current;
+  
     // Set up IntersectionObserver for the sentinel
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          // console.log(entry.isIntersecting)
           if (entry.isIntersecting) {
-            setShowArrow(true); // Hide the arrow when sentinel is in view
+            setShowArrow(true); // Show the arrow when sentinel is in view
           } else {
-            setShowArrow(true); // Show the arrow when sentinel is out of view
+            setShowArrow(true); // Hide the arrow when sentinel is out of view
           }
         });
       },
@@ -45,18 +47,19 @@ const Home = () => {
         threshold: 0.1, // Trigger when 10% of the sentinel is visible
       }
     );
-
-    if (sentinelRef.current) {
-      observer.observe(sentinelRef.current);
+  
+    if (currentSentinel) {
+      observer.observe(currentSentinel);
     }
-
+  
     // Cleanup the observer on unmount
     return () => {
-      if (sentinelRef.current) {
-        observer.unobserve(sentinelRef.current);
+      if (currentSentinel) {
+        observer.unobserve(currentSentinel);
       }
     };
   }, []);
+  
 
   return (
     <Layout>

@@ -84,3 +84,6 @@ html {
   animation: fadeIn 2s ease-out forwards; /* 2 seconds fade-in on load */
 }
 
+html, body {
+  overflow-x: hidden;
+}

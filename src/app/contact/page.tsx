@@ -69,7 +69,7 @@ const Contact = () => {
       <Head>
         <title>Contact Me - Ben Chen</title>
       </Head>
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-black">
+      <section className="pt-12 pb-20 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-black">
         <div className="container mx-auto px-6">
           {/* Header Section */}
 
@@ -175,7 +175,7 @@ const Contact = () => {
             id="linkedin-badge-container"
             className="my-6 mx-auto flex justify-center"
             data-aos="fade-up"
-            data-aos-delay="500"
+            data-aos-delay="100"
           ></div>
         </div>
       </section>

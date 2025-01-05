@@ -1,11 +1,10 @@
-// src/app/resume/page.tsx
-
 "use client";
 import React from "react";
 import Head from "next/head";
 import Layout from "@/components/Layout";
 import AnimatedHeading from "@/components/AnimatedHeading";
 import { FaLinkedin, FaGithub } from "react-icons/fa"; // Import LinkedIn and GitHub icons
+import Image from 'next/image'; // Import Image from next/image
 
 const Resume = () => {
   return (
@@ -13,19 +12,19 @@ const Resume = () => {
       <Head>
         <title>Resume - Ben Chen</title>
       </Head>
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-black">
+      <section className="pt-12 pb-20 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-black">
         <div className="container mx-auto px-6">
           {/* Header Section */}
           <div className="text-center mb-16" data-aos="fade-up">
             <AnimatedHeading title="Ben Chen" />
             <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
-                              {/* Phone Number */}
+              {/* Phone Number */}
               <a
                 href="tel:+14159480106"
                 className="text-blue-600 hover:underline dark:text-blue-400"
               >
                 415-948-0106
-              </a>{"  "}
+              </a>{" "}
               |{" "}
               {/* Email Address */}
               <a
@@ -43,8 +42,7 @@ const Resume = () => {
                 className="text-blue-600 hover:underline dark:text-blue-400"
                 data-aos="fade-right"
               >
-                            <FaLinkedin className="inline-block text-lg" /> LinkedIn
-
+                <FaLinkedin className="inline-block text-lg" /> LinkedIn
               </a>{" "}
               |{" "}
               <a
@@ -55,23 +53,21 @@ const Resume = () => {
                 data-aos="fade-left"
               >
                 <FaGithub className="inline-block text-lg" /> GitHub
-                </a>
+              </a>
             </p>
             <div className="mt-6" data-aos="zoom-in">
-  <a
-    href="/benchen_resume.pdf"
-    download
-    className="inline-block px-6 py-3 rounded-md transition bg-blue-600 text-white hover:bg-blue-700 
-      dark:bg-blue-500 dark:text-white dark:hover:bg-blue-600 shadow-md"
-    style={{
-      backgroundColor: "rgb(37, 99, 235)", // Explicit blue background for light mode
-    }}
-  >
-    Download PDF
-  </a>
-</div>
-
-
+              <a
+                href="/benchen_resume.pdf"
+                download
+                className="inline-block px-6 py-3 rounded-md transition bg-blue-600 text-white hover:bg-blue-700 
+                  dark:bg-blue-500 dark:text-white dark:hover:bg-blue-600 shadow-md"
+                style={{
+                  backgroundColor: "rgb(37, 99, 235)", // Explicit blue background for light mode
+                }}
+              >
+                Download PDF
+              </a>
+            </div>
           </div>
 
 {/* Education Section */}
@@ -80,7 +76,7 @@ const Resume = () => {
     Education
   </h2>
   <div
-    className="bg-white shadow-md rounded-lg p-6 dark:bg-gray-800 dark:text-gray-300 relative flex flex-col md:flex-row-reverse items-start md:items-center"
+    className="bg-white shadow-md rounded-lg pt-4 pb-6 px-6 dark:bg-gray-800 dark:text-gray-300 relative flex flex-col items-start"
     data-aos="fade-right"
   >
     {/* UCLA Logo */}
@@ -88,17 +84,20 @@ const Resume = () => {
       href="https://www.ucla.edu"
       target="_blank"
       rel="noopener noreferrer"
-      className="mb-4 md:mb-0 md:ml-6 flex-shrink-0"
+      className="mb-0 flex-shrink-0 self-center md:absolute md:top-2 md:right-6"
     >
-      <img
-        src="/ucla-logo.png" // Update with the actual logo file name
-        alt="UCLA Logo"
-        className="h-12 w-auto"
-      />
+      <div className="relative w-24 h-20 md:w-24 md:h-24"> {/* Increased size for mobile */}
+        <Image
+          src="/ucla-logo.png"
+          alt="UCLA Logo"
+          fill
+          className="object-contain"
+        />
+      </div>
     </a>
 
     {/* Education Details */}
-    <div>
+    <div className="md:pr-16"> {/* Added padding-right on desktop to prevent overlap */}
       <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100">
         University of California, Los Angeles (UCLA)
       </h3>
@@ -121,6 +120,7 @@ const Resume = () => {
     </div>
   </div>
 </div>
+
 
           {/* Experience Section */}
           <div className="mb-12" data-aos="fade-up">
@@ -166,61 +166,98 @@ const Resume = () => {
             ].map((job, index) => (
               <div
                 key={index}
-                className={`bg-white shadow-md rounded-lg p-6 mb-6 dark:bg-gray-800 dark:text-gray-300 flex flex-col md:flex-row-reverse items-start md:items-center`}
+                className="bg-white shadow-md rounded-lg pt-4 pb-6 px-6 dark:bg-gray-800 dark:text-gray-300 relative flex flex-col items-start mb-6"
                 data-aos={index % 2 === 0 ? "fade-left" : "fade-right"} // Alternating fade effect
               >
                 {/* Company Logo */}
                 {job.walmart && (
-                  <a
-                    href="https://tech.walmart.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mb-4 md:mb-0 md:ml-6 flex-shrink-0" // Changed md:mr-6 to md:ml-6
-                  >
-                    <img
-                      src="/walmartglobaltechlogo.png" // Default logo
-                      alt="Walmart Global Tech Logo"
-                      className="h-8 w-auto dark:hidden"
-                    />
-                    <img
-                      src="/walmartdarkmode.png" // Dark mode logo
-                      alt="Walmart Global Tech Logo"
-                      className="h-8 w-auto hidden dark:block"
-                    />
-                  </a>
+                  <div className="w-full flex md:justify-end justify-center">
+                    <a
+                      href="https://tech.walmart.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mb-0 md:mb-0 flex-shrink-0 absolute top-2 md:top-2 md:right-6"
+                    >
+                      <div className="relative w-72 h-20 md:w-64 md:h-24">
+                        {/* Increased size for mobile */}
+                        <Image
+                          src="/walmartglobaltechlogo.png" // Default logo
+                          alt="Walmart Global Tech Logo"
+                          fill
+                          className="object-contain dark:hidden"
+                        />
+                        <Image
+                          src="/walmartdarkmode.png" // Dark mode logo
+                          alt="Walmart Global Tech Logo"
+                          fill
+                          className="dark:block hidden object-contain"
+                        />
+                      </div>
+                    </a>
+                  </div>
                 )}
 
                 {/* San Francisco State Logo */}
                 {job.sfsu && (
+                                      <div className="w-full flex md:justify-end justify-center">
+
                   <a
                     href="https://www.sfsu.edu/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mb-4 md:mb-0 md:ml-6 flex-shrink-0" // Changed md:mr-6 to md:ml-6
+                    className="mb-0 md:mb-0 flex-shrink-0 md:absolute md:top-2 md:right-6"
                   >
-                    <img
-                      src="/san-francisco-state-gators-seeklogo.png"
-                      alt="San Francisco State University Logo"
-                      className="h-12 w-auto"
-                    />
+                    <div className="relative w-24 h-20 md:w-24 md:h-24"> {/* Increased size for mobile */}
+                      <Image
+                        src="/san-francisco-state-gators-seeklogo.png"
+                        alt="San Francisco State University Logo"
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
                   </a>
+                  </div>
                 )}
 
-                {/* Job Details */}
-                <div>
-                  <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100">
-                    {job.title}
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-400">
-                    {job.company}, {job.location}
-                  </p>
-                  <p className="text-gray-500 dark:text-gray-500">{job.duration}</p>
-                  <ul className="mt-4 list-disc pl-5 text-gray-700 dark:text-gray-300">
-                    {job.points.map((point, i) => (
-                      <li key={i}>{point}</li>
-                    ))}
-                  </ul>
-                </div>
+                {/* Add padding to prevent overlap only if there's a Walmart logo */}
+                {job.walmart && (
+                  <div className="pt-16 md:pt-0">
+                    <div className="md:pr-16">
+                      <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100">
+                        {job.title}
+                      </h3>
+                      <p className="text-gray-600 dark:text-gray-400">
+                        {job.company}, {job.location}
+                      </p>
+                      <p className="text-gray-500 dark:text-gray-500">{job.duration}</p>
+                      <ul className="mt-4 list-disc pl-5 text-gray-700 dark:text-gray-300">
+                        {job.points.map((point, i) => (
+                          <li key={i}>{point}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                )}
+
+                {/* If the job does not have a Walmart logo, apply different padding */}
+                {!job.walmart && (
+                  <div className="pt-0 md:pt-0">
+                    <div className="md:pr-16">
+                      <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100">
+                        {job.title}
+                      </h3>
+                      <p className="text-gray-600 dark:text-gray-400">
+                        {job.company}, {job.location}
+                      </p>
+                      <p className="text-gray-500 dark:text-gray-500">{job.duration}</p>
+                      <ul className="mt-4 list-disc pl-5 text-gray-700 dark:text-gray-300">
+                        {job.points.map((point, i) => (
+                          <li key={i}>{point}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                )}
               </div>
             ))}
           </div>

@@ -31,7 +31,7 @@ const Home = () => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          console.log(entry.isIntersecting)
+          // console.log(entry.isIntersecting)
           if (entry.isIntersecting) {
             setShowArrow(true); // Hide the arrow when sentinel is in view
           } else {
@@ -130,7 +130,7 @@ const Home = () => {
 {/* Down Arrow */}
 <div
   ref={arrowRef}
-  className={`absolute bottom-24 inset-x-0 flex justify-center transition-opacity duration-500 animate-fadeIn ${
+  className={`absolute bottom-32 inset-x-0 flex justify-center transition-opacity duration-500 animate-fadeIn ${
     showArrow ? "opacity-100" : "opacity-0"
   }`}
 >

@@ -12,6 +12,7 @@ const Contact = () => {
   const [message, setMessage] = useState("");
   const [charCount, setCharCount] = useState(1000);
   const [successMessage, setSuccessMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false); // New state for submission status
 
   useEffect(() => {
     // Initialize AOS on the client
@@ -24,10 +25,16 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Prevent multiple submissions
+    if (isSubmitting) return;
+
+    setIsSubmitting(true); // Start submission
     setSuccessMessage("");
 
     if (!name || !email || !message) {
       alert("Please fill out all fields.");
+      setIsSubmitting(false); // Reset submission status
       return;
     }
 
@@ -50,6 +57,8 @@ const Contact = () => {
     } catch (error) {
       console.error("Error sending message:", error);
       alert("There was an error sending your message. Please try again later.");
+    } finally {
+      setIsSubmitting(false); // Reset submission status
     }
   };
 
@@ -65,17 +74,16 @@ const Contact = () => {
           {/* Header Section */}
 
           <header className="contact-header">
-  <div
-    className="flex flex-col justify-center items-center text-center mx-auto mb-10 max-w-4xl"
-    data-aos="fade-up"
-  >
-    <AnimatedHeading title="Contact Me" />
-    <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
-      Feel free to reach out for opportunities or just a friendly chat!
-    </p>
-  </div>
-</header>
-
+            <div
+              className="flex flex-col justify-center items-center text-center mx-auto mb-10 max-w-4xl"
+              data-aos="fade-up"
+            >
+              <AnimatedHeading title="Contact Me" />
+              <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
+                Feel free to reach out for opportunities or just a friendly chat!
+              </p>
+            </div>
+          </header>
 
           {/* Contact Form */}
           <form
@@ -148,16 +156,18 @@ const Contact = () => {
             </div>
 
             <button
-        type="submit"
-        className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition shadow-md"
-        style={{
-          backgroundColor: "rgb(37, 99, 235)", // Explicit blue background for light mode
-        }}
-        data-aos="zoom-in"
-        data-aos-delay="300"
-      >
-        Send Message
-      </button>
+              type="submit"
+              disabled={isSubmitting} // Disable button when submitting
+              className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition shadow-md"
+              style={{
+                backgroundColor: "rgb(37, 99, 235)", // Explicit blue background for light mode
+                cursor: isSubmitting ? "not-allowed" : "pointer", // Optional: Change cursor to indicate disabled state
+              }}
+              data-aos="zoom-in"
+              data-aos-delay="0"
+            >
+              {isSubmitting ? "Sending..." : "Send Message"} {/* Optional: Change button text */}
+            </button>
           </form>
 
           {/* LinkedIn Badge Container */}

@@ -99,28 +99,28 @@ const Home = () => {
                 <span
                   className="inline-block"
                   data-aos="fade-right"
-                  data-aos-delay="500"
+                  data-aos-delay="250"
                 >
                   Security Engineer,
                 </span>{" "}
                 <span
                   className="inline-block"
                   data-aos="fade-right"
-                  data-aos-delay="1000"
+                  data-aos-delay="500"
                 >
                   UCLA Student,
                 </span>{" "}
                 <span
                   className="inline-block"
                   data-aos="fade-right"
-                  data-aos-delay="1500"
+                  data-aos-delay="1000"
                 >
                   Tech Geek,
                 </span>{" "}
                 <span
                   className="inline-block"
                   data-aos="fade-right"
-                  data-aos-delay="2000"
+                  data-aos-delay="1500"
                 >
                   Everything Nerd.
                 </span>
@@ -179,7 +179,7 @@ const Home = () => {
             <span
               className="inline-block"
               data-aos="fade-right"
-              data-aos-delay="500"
+              data-aos-delay="300"
             >
               <li>
                 Gained experience in Cloud Security Posture Management (CSPM)
@@ -190,7 +190,7 @@ const Home = () => {
             <span
               className="inline-block"
               data-aos="fade-right"
-              data-aos-delay="750"
+              data-aos-delay="400"
             >
               <li>
                 Skilled in cloud security, AI security, compliance frameworks,
@@ -200,7 +200,7 @@ const Home = () => {
             <span
               className="inline-block"
               data-aos="fade-right"
-              data-aos-delay="1000"
+              data-aos-delay="400"
             >
               <li>
                 Incoming Summer 2025 Security Engineer Intern @ Amazon.com
@@ -232,7 +232,7 @@ const Home = () => {
                   key={index}
                   className="bg-white dark:bg-gray-800 shadow-md rounded-lg p-8 w-60 text-center"
                   data-aos="zoom-in"
-                  data-aos-delay={index * 250}
+                  data-aos-delay={index * 100}
                 >
                   <p className="text-xl font-medium text-[#403f3f] dark:text-[#FFFFFF]">
                     {skill}
@@ -263,24 +263,24 @@ const Home = () => {
               {
                 title:
                   "Co-authored a GDPR compliance research paper presented at MIT Undergraduate Research Technology Conference.",
-                image: "/ben3.jpeg",
+                image: "/gdpr.png",
               },
               {
                 title:
                   "Led a project to create an AI-powered URL Threat Analyzer, achieving 96.77% accuracy.",
-                image: "/ben4.jpg",
+                image: "/newthreat.png",
               },
               {
                 title:
                   "Mentored members of UCLA’s Regents Scholar Society and many Computer Science students.",
-                image: "/ben5.jpg",
+                image: "/bennie.jpeg",
               },
             ].map((highlight, index) => (
               <div
                 key={index}
                 className="flex flex-col items-center bg-[#BADDFF] dark:bg-gray-800 shadow-lg rounded-lg p-8"
                 data-aos="flip-left"
-                data-aos-delay={index * 200}
+                data-aos-delay={index * 150}
               >
                 <div className="relative w-64 h-64 mb-6">
                   <Image

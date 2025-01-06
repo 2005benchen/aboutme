@@ -261,7 +261,7 @@ const Home = () => {
               {
                 title:
                   "Developed 8 custom Cloud Configuration Rules for Walmart’s PCI architecture, identifying over 1,000 security issues.",
-                image: "/bennie.jpeg",
+                image: "/20250105_153425.jpg",
               },
               {
                 title:

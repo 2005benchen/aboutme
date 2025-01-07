@@ -93,6 +93,8 @@ const Home = () => {
             <h1
               className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#FFFFFF] dark:text-[#FFFFFF]"
               data-aos="fade-left"
+              data-aos-delay="0"
+
             >
               This is Ben Chen
             </h1>
@@ -102,28 +104,28 @@ const Home = () => {
                 <span
                   className="inline-block"
                   data-aos="fade-right"
-                  data-aos-delay="150"
+                  data-aos-delay="300"
                 >
                   Security Engineer,
                 </span>{" "}
                 <span
                   className="inline-block"
                   data-aos="fade-right"
-                  data-aos-delay="350"
+                  data-aos-delay="500"
                 >
                   UCLA Student,
                 </span>{" "}
                 <span
                   className="inline-block"
                   data-aos="fade-right"
-                  data-aos-delay="550"
+                  data-aos-delay="700"
                 >
                   Tech Geek,
                 </span>{" "}
                 <span
                   className="inline-block"
                   data-aos="fade-right"
-                  data-aos-delay="750"
+                  data-aos-delay="900"
                 >
                   Everything Nerd.
                 </span>
@@ -165,7 +167,7 @@ const Home = () => {
           data-aos="zoom-out"
         >
           <h2
-            className="text-4xl md:text-5xl font-semibold mb-6 text-[#403f3f] dark:text-[#FFFFFF]"
+            className="text-4xl md:text-5xl font-semibold mb-6 text-[#403f3f] dark:text-[#FFFFFF] text-center"
             data-aos="fade-left"
             data-aos-delay="150"
           >
@@ -235,7 +237,7 @@ const Home = () => {
                   key={index}
                   className="bg-white dark:bg-gray-800 shadow-md rounded-lg p-8 w-60 text-center"
                   data-aos="zoom-in"
-                  data-aos-delay={index * 50}
+                  data-aos-delay={index * 75}
                 >
                   <p className="text-xl font-medium text-[#403f3f] dark:text-[#FFFFFF]">
                     {skill}
@@ -328,7 +330,7 @@ const Home = () => {
                   key={index}
                   className="italic text-[#2d2d2d] dark:text-[#f4f4f9] bg-white dark:bg-gray-800 p-12 rounded-lg shadow-lg max-w-3xl mx-auto"
                   data-aos="fade-right"
-                  data-aos-delay={index * 100}
+                  data-aos-delay={index * 75}
                 >
                   {testimonial.quote}
                   <span className="block mt-8 text-right text-sm text-[#403f3f] dark:text-[#FFFFFF]">
@@ -352,7 +354,7 @@ const Home = () => {
             <li
               className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-12"
               data-aos="zoom-in"
-              data-aos-delay={250}
+              data-aos-delay={0}
             >
               <a
                 href="https://ieeexplore.ieee.org/document/10535005"
@@ -372,15 +374,16 @@ const Home = () => {
         </section>
 
         {/* Latest LinkedIn Activity */}
-        <section className="bg-[#BADDFF] dark:bg-[#0D3B66] py-24 px-6">
-          <section className="container bg-[#BADDFF] dark:bg-[#0D3B66] mx-auto py-24 px-6 relative">
+        <section className="bg-[#BADDFF] dark:bg-[#0D3B66] py-12 px-6">
+          <section className="container bg-[#BADDFF] dark:bg-[#0D3B66] mx-auto py-12 px-6 relative">
             <h2
               className="text-4xl md:text-5xl font-semibold mb-12 text-center text-[#403f3f] dark:text-[#FFFFFF]"
               data-aos="zoom-in-down"
-            >
+              data-aos-delay="0"
+              >
               Latest LinkedIn Activity
             </h2>
-            <div className="flex justify-center items-center relative" data-aos="zoom-in-up">
+            <div className="flex justify-center items-center relative" data-aos="zoom-in-up"                          data-aos-delay="0"        >
               <iframe
                 src="https://widgets.sociablekit.com/linkedin-profile-posts/iframe/25504736"
                 frameBorder="0"

@@ -18,7 +18,7 @@ const Contact = () => {
     // Initialize AOS on the client
     if (typeof window !== "undefined") {
       import("aos").then((AOS) => {
-        AOS.init({ duration: 2000, once: false, mirror: true });
+        AOS.init({ duration: 1000, once: false, mirror: true });
       });
     }
   }, []);
@@ -90,7 +90,7 @@ const Contact = () => {
             onSubmit={handleSubmit}
             className="bg-white shadow-md rounded-lg p-8 dark:bg-gray-800 dark:text-gray-300"
             data-aos="fade-up"
-            data-aos-delay="400"
+            data-aos-delay="200"
           >
             {successMessage && (
               <p className="text-center text-green-500 mb-4" data-aos="fade-in">
@@ -150,7 +150,7 @@ const Contact = () => {
                 className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600"
                 required
               ></textarea>
-              <p className="text-sm text-gray-500 dark:text-gray-400" data-aos="fade-up" data-aos-delay="200">
+              <p className="text-sm text-gray-500 dark:text-gray-400" data-aos="fade-up" data-aos-delay="100">
                 {charCount} characters remaining
               </p>
             </div>
@@ -175,7 +175,7 @@ const Contact = () => {
             id="linkedin-badge-container"
             className="my-6 mx-auto flex justify-center"
             data-aos="fade-up"
-            data-aos-delay="100"
+            data-aos-delay="50"
           ></div>
         </div>
       </section>

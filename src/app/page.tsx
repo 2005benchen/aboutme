@@ -102,28 +102,28 @@ const Home = () => {
                 <span
                   className="inline-block"
                   data-aos="fade-right"
-                  data-aos-delay="250"
+                  data-aos-delay="150"
                 >
                   Security Engineer,
                 </span>{" "}
                 <span
                   className="inline-block"
                   data-aos="fade-right"
-                  data-aos-delay="500"
+                  data-aos-delay="350"
                 >
                   UCLA Student,
                 </span>{" "}
                 <span
                   className="inline-block"
                   data-aos="fade-right"
-                  data-aos-delay="1000"
+                  data-aos-delay="550"
                 >
                   Tech Geek,
                 </span>{" "}
                 <span
                   className="inline-block"
                   data-aos="fade-right"
-                  data-aos-delay="1500"
+                  data-aos-delay="750"
                 >
                   Everything Nerd.
                 </span>
@@ -182,7 +182,7 @@ const Home = () => {
             <span
               className="inline-block"
               data-aos="fade-right"
-              data-aos-delay="300"
+              data-aos-delay="250"
             >
               <li>
                 Gained experience in Cloud Security Posture Management (CSPM)
@@ -193,7 +193,7 @@ const Home = () => {
             <span
               className="inline-block"
               data-aos="fade-right"
-              data-aos-delay="400"
+              data-aos-delay="250"
             >
               <li>
                 Skilled in cloud security, AI security, compliance frameworks,
@@ -203,7 +203,7 @@ const Home = () => {
             <span
               className="inline-block"
               data-aos="fade-right"
-              data-aos-delay="400"
+              data-aos-delay="250"
             >
               <li>
                 Incoming Summer 2025 Security Engineer Intern @ Amazon.com
@@ -235,7 +235,7 @@ const Home = () => {
                   key={index}
                   className="bg-white dark:bg-gray-800 shadow-md rounded-lg p-8 w-60 text-center"
                   data-aos="zoom-in"
-                  data-aos-delay={index * 100}
+                  data-aos-delay={index * 50}
                 >
                   <p className="text-xl font-medium text-[#403f3f] dark:text-[#FFFFFF]">
                     {skill}
@@ -283,7 +283,7 @@ const Home = () => {
                 key={index}
                 className="flex flex-col items-center bg-[#BADDFF] dark:bg-gray-800 shadow-lg rounded-lg p-8"
                 data-aos="flip-left"
-                data-aos-delay={index * 150}
+                data-aos-delay={index * 75}
               >
                 <div className="relative w-64 h-64 mb-6">
                   <Image
@@ -328,7 +328,7 @@ const Home = () => {
                   key={index}
                   className="italic text-[#2d2d2d] dark:text-[#f4f4f9] bg-white dark:bg-gray-800 p-12 rounded-lg shadow-lg max-w-3xl mx-auto"
                   data-aos="fade-right"
-                  data-aos-delay={index * 200}
+                  data-aos-delay={index * 100}
                 >
                   {testimonial.quote}
                   <span className="block mt-8 text-right text-sm text-[#403f3f] dark:text-[#FFFFFF]">
@@ -352,7 +352,7 @@ const Home = () => {
             <li
               className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-12"
               data-aos="zoom-in"
-              data-aos-delay={500}
+              data-aos-delay={250}
             >
               <a
                 href="https://ieeexplore.ieee.org/document/10535005"

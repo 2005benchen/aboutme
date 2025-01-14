@@ -96,7 +96,7 @@ const Home = () => {
               data-aos-delay="0"
 
             >
-              This is Ben Chen
+              This is Ben Chen!!
             </h1>
 
             <div className="mt-4">
@@ -105,6 +105,7 @@ const Home = () => {
                   className="inline-block"
                   data-aos="fade-right"
                   data-aos-delay="300"
+                  data-aos-offset="0"        // <-- Add this
                 >
                   Security Engineer,
                 </span>{" "}
@@ -112,6 +113,7 @@ const Home = () => {
                   className="inline-block"
                   data-aos="fade-right"
                   data-aos-delay="500"
+                  data-aos-offset="0"        // <-- Add this
                 >
                   UCLA Student,
                 </span>{" "}
@@ -119,6 +121,7 @@ const Home = () => {
                   className="inline-block"
                   data-aos="fade-right"
                   data-aos-delay="700"
+                  data-aos-offset="0"        // <-- Add this
                 >
                   Tech Geek,
                 </span>{" "}
@@ -126,6 +129,7 @@ const Home = () => {
                   className="inline-block"
                   data-aos="fade-right"
                   data-aos-delay="900"
+                  data-aos-offset="0"        // <-- Add this
                 >
                   Everything Nerd.
                 </span>

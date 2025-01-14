@@ -96,7 +96,7 @@ const Home = () => {
               data-aos-delay="0"
 
             >
-              This is Ben Chen!
+              This is Ben Chen
             </h1>
 
             <div className="mt-4">

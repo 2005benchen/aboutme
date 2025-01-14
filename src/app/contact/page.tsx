@@ -12,10 +12,9 @@ const Contact = () => {
   const [message, setMessage] = useState("");
   const [charCount, setCharCount] = useState(1000);
   const [successMessage, setSuccessMessage] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false); // New state for submission status
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
-    // Initialize AOS on the client
     if (typeof window !== "undefined") {
       import("aos").then((AOS) => {
         AOS.init({ duration: 1000, once: false, mirror: true });
@@ -26,15 +25,14 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Prevent multiple submissions
     if (isSubmitting) return;
 
-    setIsSubmitting(true); // Start submission
+    setIsSubmitting(true);
     setSuccessMessage("");
 
     if (!name || !email || !message) {
       alert("Please fill out all fields.");
-      setIsSubmitting(false); // Reset submission status
+      setIsSubmitting(false);
       return;
     }
 
@@ -58,7 +56,7 @@ const Contact = () => {
       console.error("Error sending message:", error);
       alert("There was an error sending your message. Please try again later.");
     } finally {
-      setIsSubmitting(false); // Reset submission status
+      setIsSubmitting(false);
     }
   };
 
@@ -150,24 +148,30 @@ const Contact = () => {
                 className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600"
                 required
               ></textarea>
-              <p className="text-sm text-gray-500 dark:text-gray-400" data-aos="fade-up" data-aos-delay="100"                   data-aos-offset="0"                >
-                {charCount} characters remaining
+              {/* Conditionally switch between singular and plural */}
+              <p
+                className="text-sm text-gray-500 dark:text-gray-400"
+                data-aos="fade-up"
+                data-aos-delay="100"
+                data-aos-offset="0"
+              >
+                {charCount} {charCount === 1 ? "character" : "characters"} remaining
               </p>
             </div>
 
             <button
               type="submit"
-              disabled={isSubmitting} // Disable button when submitting
+              disabled={isSubmitting}
               className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition shadow-md"
               style={{
-                backgroundColor: "rgb(37, 99, 235)", // Explicit blue background for light mode
-                cursor: isSubmitting ? "not-allowed" : "pointer", // Optional: Change cursor to indicate disabled state
+                backgroundColor: "rgb(37, 99, 235)",
+                cursor: isSubmitting ? "not-allowed" : "pointer",
               }}
               data-aos="zoom-in"
               data-aos-delay="0"
-              data-aos-offset="0"        // <-- Add this
+              data-aos-offset="0"
             >
-              {isSubmitting ? "Sending..." : "Send Message"} {/* Optional: Change button text */}
+              {isSubmitting ? "Sending..." : "Send Message"}
             </button>
           </form>
 
@@ -177,7 +181,7 @@ const Contact = () => {
             className="my-6 mx-auto flex justify-center"
             data-aos="fade-up"
             data-aos-delay="50"
-            data-aos-offset="0"        // <-- Add this
+            data-aos-offset="0"
           ></div>
         </div>
       </section>

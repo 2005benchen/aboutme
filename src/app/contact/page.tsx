@@ -150,7 +150,7 @@ const Contact = () => {
                 className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600"
                 required
               ></textarea>
-              <p className="text-sm text-gray-500 dark:text-gray-400" data-aos="fade-up" data-aos-delay="100">
+              <p className="text-sm text-gray-500 dark:text-gray-400" data-aos="fade-up" data-aos-delay="100"                   data-aos-offset="0"                >
                 {charCount} characters remaining
               </p>
             </div>
@@ -165,6 +165,7 @@ const Contact = () => {
               }}
               data-aos="zoom-in"
               data-aos-delay="0"
+              data-aos-offset="0"        // <-- Add this
             >
               {isSubmitting ? "Sending..." : "Send Message"} {/* Optional: Change button text */}
             </button>
@@ -176,6 +177,7 @@ const Contact = () => {
             className="my-6 mx-auto flex justify-center"
             data-aos="fade-up"
             data-aos-delay="50"
+            data-aos-offset="0"        // <-- Add this
           ></div>
         </div>
       </section>

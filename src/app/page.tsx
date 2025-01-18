@@ -94,7 +94,7 @@ const Home = () => {
               className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#FFFFFF] dark:text-[#FFFFFF]"
               data-aos="fade-left"
               data-aos-delay="0"
-
+              data-aos-offset="0"        // <-- Add this
             >
               This is Ben Chen
             </h1>

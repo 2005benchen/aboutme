@@ -89,7 +89,7 @@ const Home = () => {
           </div>
 
           {/* Hero Text */}
-          <div className="absolute bottom-44 left-0 right-0 z-10 text-center">
+          <div className="absolute bottom-56 left-0 right-0 z-10 text-center">
             <h1
               className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#FFFFFF] dark:text-[#FFFFFF]"
               data-aos="fade-left"
@@ -139,7 +139,7 @@ const Home = () => {
 {/* Down Arrow */}
 <div
   ref={arrowRef}
-  className={`absolute bottom-32 inset-x-0 flex justify-center transition-opacity duration-500 animate-fadeIn ${
+  className={`absolute bottom-40 inset-x-0 flex justify-center transition-opacity duration-500 animate-fadeIn ${
     showArrow ? "opacity-100" : "opacity-0"
   }`}
 >

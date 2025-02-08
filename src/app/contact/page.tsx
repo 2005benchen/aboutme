@@ -175,14 +175,7 @@ const Contact = () => {
             </button>
           </form>
 
-          {/* LinkedIn Badge Container */}
-          <div
-            id="linkedin-badge-container"
-            className="my-6 mx-auto flex justify-center"
-            data-aos="fade-up"
-            data-aos-delay="50"
-            data-aos-offset="0"
-          ></div>
+
         </div>
       </section>
     </Layout>

@@ -339,7 +339,7 @@ const Resume = () => {
                 Linux, Wireshark, Wiz
               </p>
               <p>
-                <strong>Certifications:</strong> Google Cybersecurity, AWS Cloud Technical Essentials, Azure Cloud
+                <strong>Certifications:</strong> Security+, Certificate of Cloud Security Knowledge (CCSK), Google Cybersecurity, AWS Cloud Technical Essentials, Azure Cloud
                 Services, Google Cloud Fundamentals, Google Linux &amp; SQL, Google Network Security
               </p>
             </div>

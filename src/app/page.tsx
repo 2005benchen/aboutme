@@ -237,7 +237,7 @@ const Home = () => {
                   key={index}
                   className="bg-white dark:bg-gray-800 shadow-md rounded-lg p-8 w-60 text-center"
                   data-aos="zoom-in"
-                  data-aos-delay={index * 10}
+                  data-aos-delay={0}
                 >
                   <p className="text-xl font-medium text-[#403f3f] dark:text-[#FFFFFF]">
                     {skill}
@@ -285,7 +285,7 @@ const Home = () => {
                 key={index}
                 className="flex flex-col items-center bg-[#BADDFF] dark:bg-gray-800 shadow-lg rounded-lg p-8"
                 data-aos="flip-left"
-                data-aos-delay={index * 10}
+                data-aos-delay={0}
               >
                 <div className="relative w-64 h-64 mb-6">
                   <Image
@@ -332,7 +332,7 @@ const Home = () => {
                   key={index}
                   className="italic text-[#2d2d2d] dark:text-[#f4f4f9] bg-white dark:bg-gray-800 p-12 rounded-lg shadow-lg max-w-3xl mx-auto"
                   data-aos="fade-right"
-                  data-aos-delay={index * 10}
+                  data-aos-delay={0}
                 >
                   {testimonial.quote}
                   <span className="block mt-8 text-right text-sm text-[#403f3f] dark:text-[#FFFFFF]">

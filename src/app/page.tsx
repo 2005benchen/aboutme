@@ -173,7 +173,7 @@ const Home = () => {
           <h2
             className="text-4xl md:text-5xl font-semibold mb-6 text-[#403f3f] dark:text-[#FFFFFF] text-center"
             data-aos="fade-left"
-            data-aos-delay="150"
+            data-aos-delay="50"
           >
             Professional Summary
           </h2>
@@ -181,39 +181,35 @@ const Home = () => {
             <span
               className="inline-block"
               data-aos="fade-right"
-              data-aos-delay="250"
+              data-aos-delay="75"
             >
-              <li>Ambitious Computer Science Regents Scholar at UCLA (Class of 2026).</li>
+              <li>Incoming Summer 2025 Security Engineer Intern @ Amazon.com (Seattle, WA) - focusing on Payments Security.</li>
             </span>{" "}
             <span
               className="inline-block"
               data-aos="fade-right"
-              data-aos-delay="250"
+              data-aos-delay="75"
             >
               <li>
-                Gained experience in Cloud Security Posture Management (CSPM)
-                during a Summer 2024 internship at Walmart Global Tech
-                (Bentonville, AR).
+                Summer '24 Cybersecurity Intern @ Walmart Global Tech - focused on Payment Card Industry (PCI) compliance & cloud security.
               </li>
             </span>{" "}
             <span
               className="inline-block"
               data-aos="fade-right"
-              data-aos-delay="250"
+              data-aos-delay="75"
             >
               <li>
-                Skilled in cloud security, AI security, compliance frameworks,
-                and risk analysis.
+              Security+, CCSK, AWS certified; skilled in cloud/AI security, compliance, and risk analysis.
               </li>
             </span>{" "}
             <span
               className="inline-block"
               data-aos="fade-right"
-              data-aos-delay="250"
+              data-aos-delay="75"
             >
               <li>
-                Incoming Summer 2025 Security Engineer Intern @ Amazon.com
-                (Seattle, WA). Always looking for new opportunities.
+              UCLA Computer Science Regents Scholar (Class of 2026). Always looking for new opportunities.
               </li>
             </span>
           </ul>
@@ -225,7 +221,7 @@ const Home = () => {
             <h2
               className="text-4xl md:text-5xl font-semibold mb-12 text-[#403f3f] dark:text-[#FFFFFF] text-center"
               data-aos="flip-up"
-              data-aos-delay="150"
+              data-aos-delay="50"
             >
               Key Skills
             </h2>
@@ -241,7 +237,7 @@ const Home = () => {
                   key={index}
                   className="bg-white dark:bg-gray-800 shadow-md rounded-lg p-8 w-60 text-center"
                   data-aos="zoom-in"
-                  data-aos-delay={index * 75}
+                  data-aos-delay={index * 10}
                 >
                   <p className="text-xl font-medium text-[#403f3f] dark:text-[#FFFFFF]">
                     {skill}
@@ -257,7 +253,7 @@ const Home = () => {
           <h2
             className="text-4xl md:text-5xl font-semibold mb-12 text-center text-[#403f3f] dark:text-[#FFFFFF]"
             data-aos="flip-down"
-            data-aos-delay="150"
+            data-aos-delay="50"
           >
             Highlights
           </h2>
@@ -281,15 +277,15 @@ const Home = () => {
               },
               {
                 title:
-                  "Mentored members of UCLA’s Regents Scholar Society and many Computer Science students.",
-                image: "/bennie.jpeg",
+                  "Security+, CCSK, and AWS Certified.",
+                image: "/certs.png",
               },
             ].map((highlight, index) => (
               <div
                 key={index}
                 className="flex flex-col items-center bg-[#BADDFF] dark:bg-gray-800 shadow-lg rounded-lg p-8"
                 data-aos="flip-left"
-                data-aos-delay={index * 75}
+                data-aos-delay={index * 10}
               >
                 <div className="relative w-64 h-64 mb-6">
                   <Image
@@ -314,6 +310,8 @@ const Home = () => {
             <h2
               className="text-4xl md:text-5xl font-semibold mb-12 text-[#403f3f] dark:text-[#FFFFFF] text-center"
               data-aos="zoom-out-up"
+              data-aos-delay="0"
+
             >
               Testimonials
             </h2>
@@ -334,7 +332,7 @@ const Home = () => {
                   key={index}
                   className="italic text-[#2d2d2d] dark:text-[#f4f4f9] bg-white dark:bg-gray-800 p-12 rounded-lg shadow-lg max-w-3xl mx-auto"
                   data-aos="fade-right"
-                  data-aos-delay={index * 75}
+                  data-aos-delay={index * 10}
                 >
                   {testimonial.quote}
                   <span className="block mt-8 text-right text-sm text-[#403f3f] dark:text-[#FFFFFF]">
@@ -351,6 +349,8 @@ const Home = () => {
           <h2
             className="text-4xl md:text-5xl font-semibold mb-12 text-center text-[#403f3f] dark:text-[#FFFFFF]"
             data-aos="zoom-in-down"
+            data-aos-delay="0"
+
           >
             Publications
           </h2>

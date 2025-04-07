@@ -190,7 +190,7 @@ const Resume = () => {
                       href="https://www.amazon.jobs/content/en/teams/amazon-security"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mb-0 md:mb-0 flex-shrink-0 absolute top-4 md:top-10 md:right-6"
+                      className="mb-0 md:mb-0 flex-shrink-0 absolute top-4 md:top-10 md:right-0"
                     >
                       <div className="relative w-40 h-16 md:w-48 md:h-12">
                         {/* Increased size for mobile */}

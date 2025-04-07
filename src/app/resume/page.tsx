@@ -101,12 +101,16 @@ const Resume = () => {
       <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100">
         University of California, Los Angeles (UCLA)
       </h3>
+
+      <p className="mt-2 text-gray-600 dark:text-gray-400">
+        Bachelor&apos;s in Computer Science &amp; Linguistics, Los Angeles, CA
+      </p>
+
+      
       <p className="text-gray-600 dark:text-gray-400">
         Expected Graduation in Jun 2026
       </p>
-      <p className="mt-2 text-gray-800 dark:text-gray-200">
-        Bachelor&apos;s in Computer Science &amp; Linguistics, Los Angeles, CA
-      </p>
+
       <ul className="mt-4 list-disc pl-5 text-gray-700 dark:text-gray-300">
         <li>
           Relevant Coursework: Data Structures; Algorithms and Complexity; Software Construction;

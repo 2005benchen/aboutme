@@ -101,20 +101,20 @@ const Resume = () => {
       <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100">
         University of California, Los Angeles (UCLA)
       </h3>
+      
 
-      <p className="mt-2 text-gray-600 dark:text-gray-400">
+      <p className="text-gray-600 dark:text-gray-400">
         Bachelor&apos;s in Computer Science &amp; Linguistics, Los Angeles, CA
       </p>
 
       
-      <p className="text-gray-600 dark:text-gray-400">
+      <p className="text-gray-500 dark:text-gray-500">
         Expected Graduation in Jun 2026
       </p>
 
       <ul className="mt-4 list-disc pl-5 text-gray-700 dark:text-gray-300">
         <li>
-          Relevant Coursework: Data Structures; Algorithms and Complexity; Software Construction;
-          Machine Learning; Computational Linguistics; Functional Programming; Computer Security.
+          Relevant Coursework: Data Structures; Algorithms and Complexity; Software Construction; Computational Linguistics; Functional Programming; Computer Security.
         </li>
         <li>
           Awards &amp; Activities: Regents Scholar (top 0.05% of UCLA applicants); ACM Cyber Team; UCLA CTF
@@ -196,6 +196,8 @@ const Resume = () => {
                       rel="noopener noreferrer"
                       className="mb-0 md:mb-0 flex-shrink-0 absolute top-4 md:top-10 md:right-0"
                     >
+
+                      
                       <div className="relative w-40 h-16 md:w-48 md:h-12">
                         {/* Increased size for mobile */}
                         <Image
@@ -349,7 +351,7 @@ const Resume = () => {
               <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100">
                 URL Threat Analyzer Website + Chrome Extension
               </h3>
-              <p className="text-gray-600 dark:text-gray-400">AI cybersecurity project</p>
+              <p className="text-gray-600 dark:text-gray-400">AI Cybersecurity Project</p>
               <ul className="mt-4 list-disc pl-5 text-gray-700 dark:text-gray-300">
                 <li>
                   Led an AI cybersecurity project that tells if an inputted URL is benign or malicious via a website

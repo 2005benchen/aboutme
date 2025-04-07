@@ -129,7 +129,7 @@ const Resume = () => {
             </h2>
             {[
               {
-                title: "Security Engineer Intern (Payments)!",
+                title: "Security Engineer Intern (Payments)",
                 company: "Amazon.com",
                 duration: "Jun 2025 to Sep 2025",
                 location: "Seattle, WA",
@@ -190,9 +190,9 @@ const Resume = () => {
                       href="https://www.amazon.jobs/content/en/teams/amazon-security"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mb-0 md:mb-0 flex-shrink-0 absolute top-2 md:top-10 md:right-6"
+                      className="mb-0 md:mb-0 flex-shrink-0 absolute top-4 md:top-10 md:right-6"
                     >
-                      <div className="relative w-72 h-20 md:w-36 md:h-12">
+                      <div className="relative w-40 h-16 md:w-48 md:h-12">
                         {/* Increased size for mobile */}
                         <Image
                           src="/amazonlogo.svg" // Default logo
@@ -263,7 +263,7 @@ const Resume = () => {
                 )}
 
                 {/* Add padding to prevent overlap only if there's a Walmart logo */}
-                {job.walmart && (
+                {(job.walmart || job.amazon)&& (
                   <div className="pt-16 md:pt-0">
                     <div className="md:pr-16">
                       <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100">
@@ -283,7 +283,7 @@ const Resume = () => {
                 )}
 
                 {/* If the job does not have a Walmart logo, apply different padding */}
-                {!job.walmart && (
+                {(!job.walmart && !job.amazon) && (
                   <div className="pt-0 md:pt-0">
                     <div className="md:pr-16">
                       <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100">

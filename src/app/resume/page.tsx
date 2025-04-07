@@ -129,7 +129,18 @@ const Resume = () => {
             </h2>
             {[
               {
-                title: "Cybersecurity Engineer Intern (Cloud Systems)",
+                title: "Security Engineer Intern (Payments)",
+                company: "Amazon.com",
+                duration: "Jun 2025 to Sep 2025",
+                location: "Seattle, WA",
+                points: [
+                  "Interning within the Amazon Payments Core Security (APCS) team. Learning and building products that revolutionizes security. More details soon!",
+                ],
+                amazon: true, // Indicate Amazon.com involvement
+              },
+
+              {
+                title: "Cybersecurity Engineer Intern (Cloud Payments)",
                 company: "Walmart Global Tech",
                 duration: "Jun 2024 to Aug 2024",
                 location: "Bentonville, AR",
@@ -169,7 +180,39 @@ const Resume = () => {
                 className="bg-white shadow-md rounded-lg pt-4 pb-6 px-6 dark:bg-gray-800 dark:text-gray-300 relative flex flex-col items-start mb-6"
                 data-aos={index % 2 === 0 ? "fade-left" : "fade-right"} // Alternating fade effect
               >
-                {/* Company Logo */}
+
+                
+              
+{/* Amazon Logo */}
+{job.amazon && (
+  <div className="w-full flex md:justify-end justify-center">
+    <a
+      href="https://www.amazon.jobs/content/en/teams/amazon-security"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="mb-0 md:mb-0 flex-shrink-0 absolute top-2 md:top-2 md:right-6"
+    >
+      <div className="relative w-72 h-20 md:w-64 md:h-24">
+        {/* Increased size for mobile */}
+        <Image
+          src="/amazonlogo.svg"
+          alt="Amazon.com Logo"
+          fill
+          className="object-contain dark:hidden"
+        />
+        <Image
+          src="/amazondarklogo.png"
+          alt="Amazon.com Logo"
+          fill
+          className="dark:block hidden object-contain"
+        />
+      </div>
+    </a>
+  </div>
+)}
+
+
+                {/* Walmart Logo */}
                 {job.walmart && (
                   <div className="w-full flex md:justify-end justify-center">
                     <a

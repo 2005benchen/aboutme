@@ -183,7 +183,7 @@ const Home = () => {
               data-aos="fade-right"
               data-aos-delay="75"
             >
-              <li>Incoming Summer 2025 Security Engineer Intern @ Amazon.com (Seattle, WA) - focusing on Payments Security.</li>
+              <li>Incoming Summer '25 Security Engineer Intern @ Amazon.com (Seattle, WA) - focusing on Payments Security.</li>
             </span>{" "}
             <span
               className="inline-block"

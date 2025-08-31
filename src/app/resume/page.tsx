@@ -102,7 +102,7 @@ const Resume = () => {
         University of California, Los Angeles (UCLA)
       </h3>
       <p className="text-gray-600 dark:text-gray-400">
-        Expected Graduation in Jun 2026
+        Class of Dec 2025
       </p>
       <p className="mt-2 text-gray-800 dark:text-gray-200">
         Bachelor&apos;s in Computer Science &amp; Linguistics, Los Angeles, CA
@@ -110,7 +110,7 @@ const Resume = () => {
       <ul className="mt-4 list-disc pl-5 text-gray-700 dark:text-gray-300">
         <li>
           Relevant Coursework: Data Structures; Algorithms and Complexity; Software Construction;
-          Machine Learning; Computational Linguistics; Functional Programming; Computer Security.
+          Computational Linguistics; Automata Theory; Functional Programming; Computer Security.
         </li>
         <li>
           Awards &amp; Activities: Regents Scholar (top 0.05% of UCLA applicants); ACM Cyber Team; UCLA CTF
@@ -134,7 +134,7 @@ const Resume = () => {
                 duration: "Jun 2025 to Sep 2025",
                 location: "Seattle, WA",
                 points: [
-                  "Interning within the Amazon Payments Core Security (APCS) team. Learning and building products that revolutionizes security. More details soon!",
+                  "Interned with the Payments Security department. More details soon!",
                 ],
                 amazon: true, // Indicate Amazon.com involvement
               },

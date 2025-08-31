@@ -183,7 +183,7 @@ const Home = () => {
               data-aos="fade-right"
               data-aos-delay="75"
             >
-              <li>Incoming Summer '25 Security Engineer Intern @ Amazon.com (Seattle, WA) - focusing on Payments Security.</li>
+              <li>Summer '25 Security Engineer Intern @ Amazon.com (Seattle, WA) - focused on Payments Security Engineering.</li>
             </span>{" "}
             <span
               className="inline-block"
@@ -191,7 +191,7 @@ const Home = () => {
               data-aos-delay="75"
             >
               <li>
-                Summer '24 Cybersecurity Intern @ Walmart Global Tech - focused on Payment Card Industry (PCI) compliance & cloud security.
+                Summer '24 Cybersecurity Intern @ Walmart Global Tech (Bentonville, AR) - focused on Payment Card Industry (PCI) compliance & cloud security.
               </li>
             </span>{" "}
             <span
@@ -209,7 +209,7 @@ const Home = () => {
               data-aos-delay="75"
             >
               <li>
-              UCLA Computer Science Regents Scholar (Class of 2026). Always looking for new opportunities.
+              UCLA Computer Science Regents Scholar (Class of Dec 2025). Always looking for new opportunities.
               </li>
             </span>
           </ul>

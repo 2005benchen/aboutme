@@ -319,8 +319,14 @@ const Home = () => {
               {[
                 {
                   quote:
+                    "“Ben posseses a strong leadership quality that is not often found in someone early in their career. As the youngest person in the internship program, he consistently demonstrated initiative and knowledge in his interactions ... he would never shy away from asking tough questions or answering complex questions from senior leadership with clarity and confidence ... Ben does his best to assist others, making him a valuable colleague and a wonderful person. I highly recommend Ben Chen for any future tech position, as he would be a great asset to any team.”",
+                  author: "Jason Li, Software Engineer at Walmart Global Tech",
+              
+                },
+                {
+                  quote:
                     "“Ben possesses the skills for cybersecurity or any research role that demands creative problem-solving abilities and a dedication to making a positive societal impact... Ben's collaborative nature and well-rounded perspective make him a valuable asset. Even at this early stage in his career, he has demonstrated a research-oriented mindset and skills that could significantly contribute to any team focused on advancing cybersecurity and safeguarding individual rights.”",
-                  author: "Jimmy Lu, Machine Learning Researcher at UC Santa Cruz",
+                  author: "Jimmy Lu, Machine Learning Researcher at University of Illinois - Urbana Champaign",
                 },
                 {
                   quote:

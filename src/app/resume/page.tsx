@@ -192,7 +192,7 @@ const Resume = () => {
       rel="noopener noreferrer"
       className="mb-0 md:mb-0 flex-shrink-0 absolute top-2 md:top-2 md:right-6"
     >
-      <div className="relative w-72 h-20 md:w-64 md:h-24">
+    <div className="relative w-36 h-20 md:w-36 md:h-20">
         {/* Increased size for mobile */}
         <Image
           src="/amazonlogo.svg"
@@ -263,7 +263,7 @@ const Resume = () => {
                 )}
 
                 {/* Add padding to prevent overlap only if there's a Walmart logo */}
-                {job.walmart && (
+                {(job.walmart || job.amazon) && (
                   <div className="pt-16 md:pt-0">
                     <div className="md:pr-16">
                       <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100">
@@ -283,7 +283,7 @@ const Resume = () => {
                 )}
 
                 {/* If the job does not have a Walmart logo, apply different padding */}
-                {!job.walmart && (
+                {(!job.walmart && !job.amazon) && (
                   <div className="pt-0 md:pt-0">
                     <div className="md:pr-16">
                       <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100">

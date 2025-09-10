@@ -109,8 +109,7 @@ const Resume = () => {
       </p>
       <ul className="mt-4 list-disc pl-5 text-gray-700 dark:text-gray-300">
         <li>
-          Relevant Coursework: Data Structures; Algorithms and Complexity; Software Construction;
-          Computational Linguistics; Automata Theory; Functional Programming; Computer Security.
+          Relevant Coursework: Data Structures; Algorithms and Complexity; Software Construction; Functional Programming; Computer Security.
         </li>
         <li>
           Awards &amp; Activities: Regents Scholar (top 0.05% of UCLA applicants); ACM Cyber Team; UCLA CTF
@@ -134,7 +133,10 @@ const Resume = () => {
                 duration: "Jun 2025 to Sep 2025",
                 location: "Seattle, WA",
                 points: [
-                  "Interned with the Payments Security department. More details soon!",
+                  "Automated time-intensive incident report analysis & pattern identification, which previously took up 30 mins per report for 400+ annual reports, allowing security enhancements for Amazon’s payments ecosystem.",
+                  "Owned development of an AI agent to extract key metrics, including summaries, lessons learned, action items, & the identification of pattern groupings, which directly solved problems raised by senior security leadership.",
+                  "Engineered a live boto3 system with AWS Bedrock on SageMaker to automate insights generation with 91% accuracy; engineered grouping code with 87% accuracy that incorporated runtime optimizations.",
+                  "Reduced incident report analysis time to 50 seconds & estimated by the department to save > 20 work weeks. This directly enabled security leadership to optimize investment & prioritization in payments security, bolstering security consistency & automation for $1.7 trillion in annual transactions.",
                 ],
                 amazon: true, // Indicate Amazon.com involvement
               },

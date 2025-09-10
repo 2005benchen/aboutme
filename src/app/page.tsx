@@ -262,6 +262,11 @@ const Home = () => {
             {[
               {
                 title:
+                  "Built an AI agent that annually automates >20 weeks of cybersecurity tasks as an Amazon Security Engineer intern.",
+                image: "/amazonben.jpg",
+              },
+              {
+                title:
                   "Developed 8 custom Cloud Configuration Rules for Walmart’s PCI architecture, identifying over 1,000 security issues.",
                 image: "/20250105_153425.jpg",
               },
@@ -269,11 +274,6 @@ const Home = () => {
                 title:
                   "Co-authored a GDPR compliance research paper presented at MIT Undergraduate Research Technology Conference.",
                 image: "/gdpr.png",
-              },
-              {
-                title:
-                  "Led a project to create an AI-powered URL Threat Analyzer, achieving 96.77% accuracy.",
-                image: "/newthreat.png",
               },
               {
                 title:
@@ -341,7 +341,7 @@ const Home = () => {
                   data-aos-delay={0}
                 >
                   {testimonial.quote}
-                  <span className="block mt-8 text-right text-sm text-[#403f3f] dark:text-[#FFFFFF]">
+                  <span className="block mt-8 text-right text-sm text-[#403f3f] dark:text-[#FFFFFF] not-italic">
                     - {testimonial.author}
                   </span>
                 </blockquote>

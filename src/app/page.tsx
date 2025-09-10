@@ -395,7 +395,7 @@ const Home = () => {
             </h2>
             <div className="flex justify-center items-center relative" data-aos="zoom-in-up"                          data-aos-delay="0"        >
               <iframe
-                src="https://widgets.sociablekit.com/linkedin-profile-posts/iframe/25504736"
+                src="https://widgets.sociablekit.com/linkedin-profile-posts/iframe/25597718"
                 frameBorder="0"
                 width="100%"
                 height="1650"
@@ -414,3 +414,5 @@ const Home = () => {
 };
 
 export default Home;
+
+

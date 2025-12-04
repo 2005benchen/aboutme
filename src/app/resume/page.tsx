@@ -373,7 +373,7 @@ const Resume = () => {
     >
       <div className="relative w-28 h-24 md:w-32 md:h-32">
         <Image
-          src="/Georgia_Tech_logo.svg.png"
+          src="/Georgia_Tech_logo.png"
           alt="GT Logo"
           fill
           className="object-contain"

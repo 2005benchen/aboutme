@@ -107,7 +107,7 @@ const Home = () => {
                   data-aos-delay="300"
                   data-aos-offset="0"        // <-- Add this
                 >
-                  Security Engineer,
+                  Amazon Security Engineer,
                 </span>{" "}
                 <span
                   className="inline-block"
@@ -115,7 +115,7 @@ const Home = () => {
                   data-aos-delay="500"
                   data-aos-offset="0"        // <-- Add this
                 >
-                  UCLA Student,
+                  UCLA Graduate,
                 </span>{" "}
                 <span
                   className="inline-block"
@@ -183,7 +183,7 @@ const Home = () => {
               data-aos="fade-right"
               data-aos-delay="75"
             >
-              <li>Summer '25 Security Engineer Intern @ Amazon.com (Seattle, WA) - focused on Payments Security Engineering.</li>
+              <li>Full-time Security Engineer @ Amazon.com (Seattle, WA) in the Payments Security department.</li>
             </span>{" "}
             <span
               className="inline-block"
@@ -191,7 +191,7 @@ const Home = () => {
               data-aos-delay="75"
             >
               <li>
-                Summer '24 Cybersecurity Intern @ Walmart Global Tech (Bentonville, AR) - focused on Payment Card Industry (PCI) compliance & cloud security.
+                Previously internships @ Amazon.com & Walmart Global Tech (Bentonville, AR) - focused on Payment Card Industry (PCI) compliance & cloud security.
               </li>
             </span>{" "}
             <span
@@ -209,7 +209,7 @@ const Home = () => {
               data-aos-delay="75"
             >
               <li>
-              UCLA Computer Science Regents Scholar (Class of Dec 2025). Always looking for new opportunities.
+              UCLA Computer Science Graduate & Current Georgia Tech OMSCS Student. Always looking for new opportunities.
               </li>
             </span>
           </ul>

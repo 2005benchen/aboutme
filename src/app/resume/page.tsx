@@ -70,56 +70,27 @@ const Resume = () => {
             </div>
           </div>
 
-{/* Education Section */}
-<div className="mb-12" data-aos="fade-up">
-  <h2 className="text-3xl font-semibold text-blue-600 dark:text-blue-400 mb-4">
-    Education
-  </h2>
-  <div
-    className="bg-white shadow-md rounded-lg pt-4 pb-6 px-6 dark:bg-gray-800 dark:text-gray-300 relative flex flex-col items-start"
-    data-aos="fade-right"
-  >
-    {/* UCLA Logo */}
-    <a
-      href="https://www.ucla.edu"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="mb-0 flex-shrink-0 self-center md:absolute md:top-2 md:right-6"
-    >
-      <div className="relative w-24 h-20 md:w-24 md:h-24"> {/* Increased size for mobile */}
-        <Image
-          src="/ucla-logo.png"
-          alt="UCLA Logo"
-          fill
-          className="object-contain"
-        />
-      </div>
-    </a>
 
-    {/* Education Details */}
-    <div className="md:pr-16"> {/* Added padding-right on desktop to prevent overlap */}
-      <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100">
-        University of California, Los Angeles (UCLA)
-      </h3>
-      <p className="text-gray-600 dark:text-gray-400">
-        Class of Dec 2025
-      </p>
-      <p className="mt-2 text-gray-800 dark:text-gray-200">
-        Bachelor&apos;s in Computer Science &amp; Linguistics, Los Angeles, CA
-      </p>
-      <ul className="mt-4 list-disc pl-5 text-gray-700 dark:text-gray-300">
-        <li>
-          Relevant Coursework: Data Structures; Algorithms and Complexity; Software Construction; Functional Programming; Computer Security.
-        </li>
-        <li>
-          Awards &amp; Activities: Regents Scholar (top 0.05% of UCLA applicants); ACM Cyber Team; UCLA CTF
-          Team
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
-
+          {/* Technical Skills Section */}
+          <div className="mb-12" data-aos="fade-up">
+            <h2 className="text-3xl font-semibold text-blue-600 dark:text-blue-400 mb-4">
+              Technical Skills
+            </h2>
+            <div className="bg-white shadow-md rounded-lg p-6 dark:bg-gray-800 dark:text-gray-300">
+              <p>
+                <strong>Languages:</strong> Experience in Java, Python, C++, SQL, HTML, CSS, JavaScript, Prolog, Haskell,
+                Rego
+              </p>
+              <p>
+                <strong>Developer Tools:</strong> Git, PowerShell, VS Code, Google Colab, Flask, Replit, Pandas, NumPy,
+                Linux, Wireshark, Wiz
+              </p>
+              <p>
+                <strong>Certifications:</strong> Security+, Certificate of Cloud Security Knowledge (CCSK), Google Cybersecurity, AWS Cloud Technical Essentials, Azure Cloud
+                Services, Google Cloud Fundamentals, Google Linux &amp; SQL, Google Network Security
+              </p>
+            </div>
+          </div>
 
           {/* Experience Section */}
           <div className="mb-12" data-aos="fade-up">
@@ -127,6 +98,19 @@ const Resume = () => {
               Experience
             </h2>
             {[
+
+                {
+                title: "Security Engineer (Payments)",
+                company: "Amazon.com",
+                duration: "Feb 2026 to Present",
+                location: "Seattle, WA",
+                points: [
+                  "Promoted from intern to full-time role. Building cool things in the payments security space. More details soon!",
+                ],
+                amazon: true, // Indicate Amazon.com involvement
+              },
+
+
               {
                 title: "Security Engineer Intern (Payments)",
                 company: "Amazon.com",
@@ -340,6 +324,7 @@ const Resume = () => {
                 </li>
               </ul>
             </div>
+            
             <div
               className="bg-white shadow-md rounded-lg p-6 dark:bg-gray-800 dark:text-gray-300"
               data-aos="fade-left"
@@ -369,26 +354,102 @@ const Resume = () => {
             </div>
           </div>
 
-          {/* Technical Skills Section */}
-          <div className="mb-12" data-aos="fade-up">
-            <h2 className="text-3xl font-semibold text-blue-600 dark:text-blue-400 mb-4">
-              Technical Skills
-            </h2>
-            <div className="bg-white shadow-md rounded-lg p-6 dark:bg-gray-800 dark:text-gray-300">
-              <p>
-                <strong>Languages:</strong> Experience in Java, Python, C++, SQL, HTML, CSS, JavaScript, Prolog, Haskell,
-                Rego
-              </p>
-              <p>
-                <strong>Developer Tools:</strong> Git, PowerShell, VS Code, Google Colab, Flask, Replit, Pandas, NumPy,
-                Linux, Wireshark, Wiz
-              </p>
-              <p>
-                <strong>Certifications:</strong> Security+, Certificate of Cloud Security Knowledge (CCSK), Google Cybersecurity, AWS Cloud Technical Essentials, Azure Cloud
-                Services, Google Cloud Fundamentals, Google Linux &amp; SQL, Google Network Security
-              </p>
-            </div>
-          </div>
+
+{/* Education Section */}
+<div className="mb-12" data-aos="fade-up">
+  <h2 className="text-3xl font-semibold text-blue-600 dark:text-blue-400 mb-4">
+    Education
+  </h2>
+  <div
+    className="bg-white shadow-md rounded-lg pt-4 pb-6 px-6 dark:bg-gray-800 dark:text-gray-300 relative flex flex-col items-start mb-6"
+    data-aos="fade-right"
+  >
+    {/* GT Logo */}
+    <a
+      href="https://omscs.gatech.edu/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="mb-0 flex-shrink-0 self-center md:absolute md:top-2 md:right-6"
+    >
+      <div className="relative w-28 h-24 md:w-32 md:h-32">
+        <Image
+          src="/Georgia_Tech_logo.svg.png"
+          alt="GT Logo"
+          fill
+          className="object-contain"
+        />
+      </div>
+    </a>
+
+    {/* Education Details */}
+    <div className="md:pr-16"> {/* Added padding-right on desktop to prevent overlap */}
+      <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100">
+        Georgia Institute of Technology
+      </h3>
+      <p className="text-gray-600 dark:text-gray-400">
+        Class of Dec 2027
+      </p>
+      <p className="mt-2 text-gray-800 dark:text-gray-200">
+        Master&apos;s of Science in Computer Science
+      </p>
+      <ul className="mt-4 list-disc pl-5 text-gray-700 dark:text-gray-300">
+        <li>
+          Completing Online (AI Specialization)
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
+  {/* UCLA */}
+  <div
+    className="bg-white shadow-md rounded-lg pt-4 pb-6 px-6 dark:bg-gray-800 dark:text-gray-300 relative flex flex-col items-start"
+    data-aos="fade-left"
+  >
+    {/* UCLA Logo */}
+    
+    <a
+      href="https://www.ucla.edu"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="mb-0 flex-shrink-0 self-center md:absolute md:top-2 md:right-6"
+    >
+      <div className="relative w-24 h-20 md:w-24 md:h-24"> {/* Increased size for mobile */}
+        <Image
+          src="/ucla-logo.png"
+          alt="UCLA Logo"
+          fill
+          className="object-contain"
+        />
+      </div>
+    </a>
+
+    {/* Education Details */}
+    <div className="md:pr-16"> {/* Added padding-right on desktop to prevent overlap */}
+      <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100">
+        University of California, Los Angeles (UCLA)
+      </h3>
+      <p className="text-gray-600 dark:text-gray-400">
+        {/*GPA: */}
+      </p>
+      <p className="mt-2 text-gray-800 dark:text-gray-200">
+        Bachelor&apos;s in Computer Science &amp; Linguistics
+      </p>
+      <ul className="mt-4 list-disc pl-5 text-gray-700 dark:text-gray-300">
+        <li>
+          Relevant Coursework: Data Structures; Algorithms and Complexity; Software Construction; Functional Programming; Computer Security.
+        </li>
+        <li>
+          Awards &amp; Activities: Regents Scholar (top 0.05% of UCLA applicants); ACM Cyber Team; UCLA CTF
+          Team
+        </li>
+      </ul>
+    </div>
+
+
+  </div>
+</div>
+
         </div>
       </section>
     </Layout>

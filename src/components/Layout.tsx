@@ -100,8 +100,8 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         <div className="container mx-auto px-4 flex items-center h-full">
           {/* Left Section: Logo */}
           <div className="flex-1">
-            <Link href="/" legacyBehavior>
-              <a
+            <Link href="/" 
+              
                 className="flex items-center gap-4 hover:text-yellow-500 transition-colors duration-200"
                 onClick={(e) => {
                   if (pathname === "/") {
@@ -118,7 +118,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                   height={40}
                 />
                 <h1 className="text-2xl">Ben Chen</h1>
-              </a>
+            
             </Link>
           </div>
 
